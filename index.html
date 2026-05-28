@@ -1,0 +1,1738 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    
+    <!-- CSS & Font -->
+    <link rel="preload" href="https://web-kelas-12-rpl.vercel.app/_next/static/media/797e433ab948586e-s.p.dbea232f.woff2" as="font" crossorigin="" type="font/woff2"/>
+    <link rel="preload" href="https://web-kelas-12-rpl.vercel.app/_next/static/media/caa3a2e1cccd8315-s.p.853070df.woff2" as="font" crossorigin="" type="font/woff2"/>
+    <link rel="stylesheet" href="https://web-kelas-12-rpl.vercel.app/_next/static/chunks/1793b8ea2d09d041.css" data-precedence="next"/>
+    <link rel="stylesheet" href="https://web-kelas-12-rpl.vercel.app/_next/static/chunks/35ab0b26810c9007.css" data-precedence="next"/>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        @font-face { font-family: 'Geist'; src: url('https://web-kelas-12-rpl.vercel.app/_next/static/media/797e433ab948586e-s.p.dbea232f.woff2') format('woff2'); }
+        @font-face { font-family: 'Geist Mono'; src: url('https://web-kelas-12-rpl.vercel.app/_next/static/media/caa3a2e1cccd8315-s.p.853070df.woff2') format('woff2'); }
+        
+        html { scroll-behavior: smooth; cursor: auto; }
+        body { overflow-x: hidden; background-color: #f8fafc; font-family: 'Geist', sans-serif; }
+
+        /* ===== EPIC CUSTOM CURSOR (from untitled) ===== */
+        @media (pointer: fine) {
+            body, a, button, input, .mag-btn, .tilt-card, .text-name span, .bio-value, .new-ig-btn, .modal-close, .info-value-big, .info-value-year, .dev-btn { cursor: none !important; }
+            #cursor-dot { width: 6px; height: 6px; background-color: #3b82f6; position: fixed; border-radius: 50%; z-index: 9999999; pointer-events: none; transform: translate(-50%, -50%); transition: width 0.2s, height 0.2s, background-color 0.2s; box-shadow: 0 0 10px rgba(59,130,246,0.8); }
+            #cursor-ring { width: 36px; height: 36px; border: 1.5px solid rgba(59, 130, 246, 0.5); position: fixed; border-radius: 50%; z-index: 9999998; pointer-events: none; transform: translate(-50%, -50%); transition: width 0.2s, height 0.2s, background-color 0.2s, border-color 0.2s; will-change: transform; }
+            body.hovering #cursor-dot { width: 0px; height: 0px; opacity: 0; }
+            body.hovering #cursor-ring { width: 50px; height: 50px; background-color: rgba(59, 130, 246, 0.1); border-color: #3b82f6; backdrop-filter: blur(2px); }
+        }
+
+        /* ===== PRELOADER ===== */
+        #preloader { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: #0f172a; z-index: 999999; display: flex; justify-content: center; align-items: center; transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.8s; }
+        .loader { width: 112px; height: 112px; transition: transform 0.8s ease, opacity 0.8s ease; position: relative; }
+        .box1, .box2, .box3 { border: 16px solid #f5f5f5; box-sizing: border-box; position: absolute; display: block; box-shadow: 0 0 20px rgba(255,255,255,0.2); }
+        .box1 { width: 112px; height: 48px; margin-top: 64px; margin-left: 0px; animation: abox1 4s 1s forwards ease-in-out infinite; }
+        .box2 { width: 48px; height: 48px; margin-top: 0px; margin-left: 0px; animation: abox2 4s 1s forwards ease-in-out infinite; }
+        .box3 { width: 48px; height: 48px; margin-top: 0px; margin-left: 64px; animation: abox3 4s 1s forwards ease-in-out infinite; }
+        @keyframes abox1 { 0% { width: 112px; height: 48px; margin-top: 64px; margin-left: 0px; } 12.5% { width: 48px; height: 48px; margin-top: 64px; margin-left: 0px; } 25% { width: 48px; height: 48px; margin-top: 64px; margin-left: 0px; } 37.5% { width: 48px; height: 48px; margin-top: 64px; margin-left: 0px; } 50% { width: 48px; height: 48px; margin-top: 64px; margin-left: 0px; } 62.5% { width: 48px; height: 48px; margin-top: 64px; margin-left: 0px; } 75% { width: 48px; height: 112px; margin-top: 0px; margin-left: 0px; } 87.5% { width: 48px; height: 48px; margin-top: 0px; margin-left: 0px; } 100% { width: 48px; height: 48px; margin-top: 0px; margin-left: 0px; } }
+        @keyframes abox2 { 0% { width: 48px; height: 48px; margin-top: 0px; margin-left: 0px; } 12.5% { width: 48px; height: 48px; margin-top: 0px; margin-left: 0px; } 25% { width: 48px; height: 48px; margin-top: 0px; margin-left: 0px; } 37.5% { width: 48px; height: 48px; margin-top: 0px; margin-left: 0px; } 50% { width: 112px; height: 48px; margin-top: 0px; margin-left: 0px; } 62.5% { width: 48px; height: 48px; margin-top: 0px; margin-left: 64px; } 75% { width: 48px; height: 48px; margin-top: 0px; margin-left: 64px; } 87.5% { width: 48px; height: 48px; margin-top: 0px; margin-left: 64px; } 100% { width: 48px; height: 48px; margin-top: 0px; margin-left: 64px; } }
+        @keyframes abox3 { 0% { width: 48px; height: 48px; margin-top: 64px; margin-left: 64px; } 12.5% { width: 48px; height: 48px; margin-top: 0px; margin-left: 64px; } 25% { width: 48px; height: 112px; margin-top: 0px; margin-left: 64px; } 37.5% { width: 48px; height: 48px; margin-top: 64px; margin-left: 64px; } 50% { width: 48px; height: 48px; margin-top: 64px; margin-left: 64px; } 62.5% { width: 48px; height: 48px; margin-top: 64px; margin-left: 64px; } 75% { width: 48px; height: 48px; margin-top: 64px; margin-left: 64px; } 87.5% { width: 48px; height: 48px; margin-top: 64px; margin-left: 64px; } 100% { width: 112px; height: 48px; margin-top: 64px; margin-left: 0px; } }
+
+        @keyframes subtlePulse { 0%, 100% { opacity: 0.2; transform: scale(0.98); } 50% { opacity: 0.7; transform: scale(1.02); } }
+        .breath-text { animation: subtlePulse 3s infinite ease-in-out; }
+        @keyframes customPulse { 0%, 100% { opacity: 0.15; } 50% { opacity: 0.85; } }
+        .clean-pulse { animation: customPulse 2.5s infinite ease-in-out; }
+
+        /* ===== TYPING NARRATION ===== */
+        .typing-cursor::after { content: '|'; animation: cursorBlink 0.8s infinite step-end; color: #60a5fa; margin-left: 3px; font-weight: bold; }
+        @keyframes cursorBlink { 0%, 100% { opacity: 0; } 50% { opacity: 1; } }
+
+        /* ===== SCROLL VELOCITY MARQUEE ===== */
+        .marquee-container { width: 100%; overflow: hidden; background-color: #0f172a; padding: 1.5rem 0; position: relative; z-index: 60; border-top: 1px solid rgba(255,255,255,0.05); }
+        .marquee-track { display: flex; width: max-content; will-change: transform; }
+        .marquee-group { display: flex; }
+        .marquee-group span { padding: 0 1.5rem; font-size: 3.5rem; font-weight: 900; font-style: normal; text-transform: uppercase; white-space: nowrap; letter-spacing: 0.02em; font-family: 'Geist Mono', monospace; }
+        .marquee-group span.outline { color: transparent; -webkit-text-stroke: 1px rgba(255, 255, 255, 0.4); }
+        .marquee-group span.filled { color: #ffffff; text-shadow: 0 0 20px rgba(255,255,255,0.2); }
+        @media (max-width: 768px) { .marquee-group span { font-size: 2.25rem; padding: 0 1rem; } .marquee-container { padding: 1rem 0; } }
+
+        /* ===== SCROLL REVEAL ANIMATIONS ===== */
+        .fade-up-element { opacity: 0; transform: translateY(40px) scale(0.95); transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1); }
+        .fade-up-element.visible { opacity: 1; transform: translateY(0) scale(1); }
+        [data-scroll-anim] { opacity: 0; transform: translateY(50px) scale(0.9); transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1); }
+        [data-scroll-anim].in-view { opacity: 1; transform: translateY(0) scale(1); }
+
+        /* ===== HERO FOCUS CAMERA ===== */
+        .focus-container { position: relative; display: inline-flex; gap: 1.5rem; align-items: center; padding: 10px; font-family: 'Geist Mono', monospace;}
+        .focus-word { display: inline-block; font-size: 5rem; font-weight: 900; color: white; transition: filter 0.6s ease-in-out, text-shadow 0.6s ease; z-index: 2; line-height: 1.3; padding: 0 8px; text-shadow: 0 0 0 transparent; }
+        @media (min-width: 768px) { .focus-word { font-size: 7rem; } }
+        .focus-word.active { text-shadow: 0 0 20px rgba(82, 39, 255, 0.8), 0 0 40px rgba(82, 39, 255, 0.4); }
+        .focus-frame { position: absolute; transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1); pointer-events: none; z-index: 10; filter: drop-shadow(0 0 8px #5227FF) drop-shadow(0 0 20px #5227FF); animation: framePulse 2s infinite alternate; }
+        @keyframes framePulse { from { transform: scale(1); } to { transform: scale(1.02); } }
+        .corner { position: absolute; width: 30px; height: 30px; border: 0 solid #5227FF; }
+        .corner.top-left { top: 0; left: 0; border-top-width: 4px; border-left-width: 4px; }
+        .corner.top-right { top: 0; right: 0; border-top-width: 4px; border-right-width: 4px; }
+        .corner.bottom-left { bottom: 0; left: 0; border-bottom-width: 4px; border-left-width: 4px; }
+        .corner.bottom-right { bottom: 0; right: 0; border-bottom-width: 4px; border-right-width: 4px; }
+
+        .scroll-indicator { position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%); z-index: 20; display: flex; flex-direction: column; align-items: center; opacity: 0.7; animation: bounceFloat 2s infinite; }
+        .scroll-indicator .mouse { width: 24px; height: 38px; border: 2px solid white; border-radius: 12px; position: relative; }
+        .scroll-indicator .wheel { width: 4px; height: 6px; background: white; border-radius: 2px; position: absolute; top: 6px; left: 50%; transform: translateX(-50%); animation: scrollWheel 1.5s infinite; }
+        @keyframes bounceFloat { 0%, 100% { transform: translate(-50%, 0); } 50% { transform: translate(-50%, 10px); } }
+        @keyframes scrollWheel { 0% { top: 6px; opacity: 1; } 100% { top: 18px; opacity: 0; } }
+
+        /* ===== TEACHER SECTION (3D PARALLAX) ===== */
+        #teacher { position: relative; width: 100%; min-height: 100vh; background-color: #ffffff; overflow: hidden; display: flex; align-items: center; justify-content: center; border-bottom: 1px solid #f1f5f9; perspective: 1500px; transform-style: preserve-3d; }
+        #fairy-light { position: absolute; top: 0; left: 0; width: 400px; height: 400px; background: radial-gradient(circle, rgba(255, 87, 34, 0.15) 0%, rgba(26, 95, 95, 0.05) 40%, transparent 70%); border-radius: 50%; pointer-events: none; z-index: 1; transform: translate(-50%, -50%); filter: blur(20px); mix-blend-mode: multiply; transition: opacity 0.5s; }
+        @keyframes breatheBg { 0%, 100% { opacity: 0.4; transform: scale(1); } 50% { opacity: 0.8; transform: scale(1.05); } }
+        #ambient-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle 800px at 50% 50%, rgba(26, 95, 95, 0.05) 0%, transparent 100%); z-index: 0; pointer-events: none; animation: breatheBg 6s infinite alternate ease-in-out; transform: translateZ(-100px); }
+        #teacher-hero-section { position: relative; display: flex; flex-direction: row; align-items: center; justify-content: space-between; width: 100%; max-width: 1200px; height: 100%; padding: 60px 40px; gap: 40px; flex-wrap: nowrap !important; transform-style: preserve-3d; will-change: transform; z-index: 10; }
+        .layer-back { transform: translateZ(-40px); }
+        .layer-mid { transform: translateZ(40px); }
+        .layer-front { transform: translateZ(90px); }
+        .hero-header { position: absolute; top: 24px; left: 40px; right: 40px; display: flex; justify-content: space-between; align-items: center; transform: translateZ(40px); }
+        .hero-header span { font-size: 13px; color: #1a5f5f; font-weight: 800; letter-spacing: 1px; }
+        .col-left { width: 280px; flex-shrink: 0; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; transform-style: preserve-3d; position: relative; min-height: 150px; }
+        .text-subtitle { font-size: 13px; letter-spacing: 3px; text-transform: uppercase; color: #888888; margin-bottom: 10px; font-weight: 800; }
+        .decorative-line { width: 60px; height: 3px; background-color: #1a5f5f; margin-bottom: 16px; }
+        .text-bottom { font-size: 13px; color: #999999; font-weight: 800; }
+        #story-container { position: relative; width: 100%; height: 100px; margin-bottom: 10px; transform-style: preserve-3d; }
+        .story-phase { position: absolute; top: 0; left: 0; font-size: 28px; font-weight: 900; color: #1a5f5f; line-height: 1.2; opacity: 0; transform: translateY(20px) translateZ(10px); transition: opacity 0.8s ease, transform 0.8s ease, filter 0.8s ease; pointer-events: none; }
+        .story-phase.active { opacity: 1; transform: translateY(0) translateZ(30px); }
+        .story-phase.exit { opacity: 0; transform: translateY(-20px) translateZ(10px); filter: blur(5px); }
+        .text-name { font-size: 42px; font-weight: 900; color: #1a5f5f; line-height: 1.1; display: flex; white-space: pre; transform-style: preserve-3d; cursor: pointer; }
+        .text-name span { display: inline-block; position: relative; will-change: transform, color, text-shadow, filter; }
+        .col-center { flex: 1; display: flex; justify-content: center; align-items: center; transform-style: preserve-3d; }
+        @keyframes floatAutonomous { 0%, 100% { transform: translateY(0px) rotateZ(0deg); } 50% { transform: translateY(-15px) rotateZ(1deg); } }
+        .photo-breathing { animation: floatAutonomous 7s ease-in-out infinite alternate; }
+        #teacher-img { width: 300px; height: auto; object-fit: contain; display: block; filter: drop-shadow(0 20px 25px rgba(26, 95, 95, 0.25)); border: none; background: transparent; pointer-events: none; }
+        .col-right { width: 260px; flex-shrink: 0; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; transform-style: preserve-3d; }
+        #typing-area { width: 100%; position: relative; transform-style: preserve-3d; }
+        .bio-item { margin-bottom: 18px; opacity: 0; transform: translateX(30px); transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1); position: relative; }
+        .bio-item.show { opacity: 1; transform: translateX(0); }
+        .bio-label { font-size: 11px; color: #888888; letter-spacing: 1.5px; font-weight: 800; text-transform: uppercase; margin-bottom: 4px; display: block; }
+        .bio-value { font-size: 16px; color: #1a5f5f; font-weight: 900; display: inline-block; cursor: pointer; transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); position: relative; }
+        .bio-value:hover { color: #ff9800; text-shadow: 0 0 8px rgba(255, 152, 0, 0.4); transform: scale(1.02) translateX(2px); }
+        .effect-glow.active { color: #ff9800; text-shadow: 0 0 10px rgba(255, 152, 0, 0.8), 0 0 20px rgba(255, 152, 0, 0.6); transform: scale(1.1) translateX(5px); }
+
+        /* ===== RUBBERBAND TEXT ANIMATION (from index7) ===== */
+        .anim-text-container { display: inline-block; white-space: nowrap; }
+        .split-outer { display: inline-block; opacity: 0; transform: translateY(30px) rotateX(-90deg); transform-origin: bottom center; transition: opacity 0.5s ease, transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1); }
+        .anim-text-container.in-view .split-outer { opacity: 1; transform: translateY(0) rotateX(0deg); }
+        .split-inner { display: inline-block; transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), filter 0.2s ease, color 0.2s ease, text-shadow 0.2s ease; will-change: transform, filter, color; }
+        .anim-line { width: 0; opacity: 0; transition: width 1.2s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s; transition-delay: 0.6s; }
+        .anim-line.in-view { width: 5rem; opacity: 1; }
+
+        /* ===== SEARCH GLITCH ===== */
+        @keyframes glitchOut {
+            0% { transform: translate(0) scale(1); filter: hue-rotate(0deg); opacity: 1; }
+            20% { transform: translate(-10px, 5px) skewX(20deg); filter: hue-rotate(90deg) contrast(200%); opacity: 0.8; }
+            40% { transform: translate(10px, -5px) skewX(-20deg); filter: invert(1); opacity: 0.5; }
+            60% { transform: translate(-5px, 5px) skewX(10deg); filter: blur(5px); opacity: 0.2; }
+            100% { transform: translate(0) scale(0.8); opacity: 0; display: none; }
+        }
+        .glitch-hide { animation: glitchOut 0.4s forwards cubic-bezier(0.36, 0, 0.66, -0.56) !important; }
+
+        /* ===== STUDENT CARDS & 3D TILT ===== */
+        #studentGrid { position: relative; }
+        .tilt-wrapper { perspective: 1000px; transform-style: preserve-3d; position: relative; }
+        .tilt-wrapper::before { content: ""; position: absolute; inset: -1px; border-radius: 1rem; background: radial-gradient(350px circle at var(--mouse-x) var(--mouse-y), rgba(59, 130, 246, 0.15), transparent 40%); opacity: 0; transition: opacity 0.3s; pointer-events: none; z-index: 0; }
+        .tilt-wrapper:hover::before { opacity: 1; }
+        .tilt-card { transition: transform 0.2s ease-out, box-shadow 0.2s ease-out, border-color 0.3s; transform-style: preserve-3d; will-change: transform; position: relative; z-index: 1; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); }
+        .student-photo { transition: opacity 0.4s ease-in-out, filter 0.5s ease-in-out, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1); transform: translateZ(20px); }
+        .tilt-wrapper:hover .student-photo { transform: translateZ(35px) scale(1.1); filter: grayscale(0%) !important; }
+        .tilt-text-content { transform: translateZ(30px); position: relative; z-index: 2; transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+        .tilt-text-content h3 { transition: letter-spacing 0.4s cubic-bezier(0.16, 1, 0.3, 1), color 0.3s, filter 0.3s; font-family: 'Geist Mono', monospace;}
+        .tilt-wrapper:hover .tilt-text-content { transform: translateZ(50px) scale(1.05); }
+        .tilt-wrapper:hover .tilt-text-content h3 { letter-spacing: 0.15em; color: #3b82f6; text-shadow: 0 0 8px rgba(59,130,246,0.5); }
+
+        /* ===== ROLE GLOW ===== */
+        :root { --glow-ketua: rgba(255, 45, 45, 0.8); --glow-wakil: rgba(139, 92, 246, 0.8); --glow-sekretaris: rgba(59, 130, 246, 0.8); --glow-bendahara: rgba(245, 158, 11, 0.8); --glow-pendidikan: rgba(6, 182, 212, 0.8); --glow-keamanan: rgba(100, 116, 139, 0.8); --glow-kebersihan: rgba(34, 197, 94, 0.8); }
+        @keyframes borderPulseNormal { 0%, 100% { border-color: rgba(59, 130, 246, 0.2); box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.1); } 50% { border-color: rgba(59, 130, 246, 0.7); box-shadow: 0 20px 40px -5px rgba(59, 130, 246, 0.25); transform: translateY(-3px); } }
+        .group:not(.role-card):hover { animation: borderPulseNormal 2.5s infinite ease-in-out; }
+        @keyframes roleGlowPulse { 0%, 100% { box-shadow: 0 0 0 1px var(--glow-light), 0 15px 30px -5px var(--glow-dim); transform: translateY(-3px); } 50% { box-shadow: 0 0 0 4px var(--glow-light), 0 25px 45px -5px var(--glow-dim); transform: translateY(-5px); } }
+        [data-role] .role-card { cursor: pointer; }
+        [data-role="ketua"]:hover .role-card { border-color: var(--glow-ketua); --glow-light: rgba(255,45,45,0.4); --glow-dim: rgba(255,45,45,0.25); animation: roleGlowPulse 2s infinite ease-in-out; }
+        [data-role="wakil"]:hover .role-card { border-color: var(--glow-wakil); --glow-light: rgba(139,92,246,0.4); --glow-dim: rgba(139,92,246,0.25); animation: roleGlowPulse 2s infinite ease-in-out; }
+        [data-role="sekretaris"]:hover .role-card { border-color: var(--glow-sekretaris); --glow-light: rgba(59,130,246,0.4); --glow-dim: rgba(59,130,246,0.25); animation: roleGlowPulse 2s infinite ease-in-out; }
+        [data-role="bendahara"]:hover .role-card { border-color: var(--glow-bendahara); --glow-light: rgba(245,158,11,0.4); --glow-dim: rgba(245,158,11,0.25); animation: roleGlowPulse 2s infinite ease-in-out; }
+        [data-role="pendidikan"]:hover .role-card { border-color: var(--glow-pendidikan); --glow-light: rgba(6,182,212,0.4); --glow-dim: rgba(6,182,212,0.25); animation: roleGlowPulse 2s infinite ease-in-out; }
+        [data-role="keamanan"]:hover .role-card { border-color: var(--glow-keamanan); --glow-light: rgba(100,116,139,0.4); --glow-dim: rgba(100,116,139,0.25); animation: roleGlowPulse 2s infinite ease-in-out; }
+        [data-role="kebersihan"]:hover .role-card { border-color: var(--glow-kebersihan); --glow-light: rgba(34,197,94,0.4); --glow-dim: rgba(34,197,94,0.25); animation: roleGlowPulse 2s infinite ease-in-out; }
+
+        /* ===== MODAL GLASS ===== */
+        #screenshot-modal-overlay { position: fixed; inset: 0; background: rgba(255, 255, 255, 0.4); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); z-index: 99999; display: flex; align-items: center; justify-content: center; opacity: 0; visibility: hidden; transition: all 0.5s ease; cursor: default; }
+        #screenshot-modal-overlay.show { opacity: 1; visibility: visible; }
+        .modal-box { width: 100%; max-width: 1100px; height: 500px; background: rgba(255, 255, 255, 0.25); backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px); border: 1px solid rgba(255, 255, 255, 0.6); border-radius: 1.5rem; overflow: hidden; display: flex; position: relative; transform: scale(0.9); opacity: 0; transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s; box-shadow: 0 25px 50px rgba(0,0,0,0.1); }
+        #screenshot-modal-overlay.show .modal-box { transform: scale(1); opacity: 1; }
+        .modal-inner-anim { opacity: 0; transform: translateY(30px); filter: blur(5px); transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1); }
+        #screenshot-modal-overlay.show .modal-inner-anim { opacity: 1; transform: translateY(0); filter: blur(0); }
+        #screenshot-modal-overlay.show .m-delay-1 { transition-delay: 0.2s; } #screenshot-modal-overlay.show .m-delay-2 { transition-delay: 0.3s; }
+        #screenshot-modal-overlay.show .m-delay-3 { transition-delay: 0.4s; } #screenshot-modal-overlay.show .m-delay-4 { transition-delay: 0.5s; } #screenshot-modal-overlay.show .m-delay-5 { transition-delay: 0.6s; } #screenshot-modal-overlay.show .m-delay-6 { transition-delay: 0.7s; }
+        .modal-left { flex: 1; padding: 3rem 4rem; display: flex; flex-direction: column; justify-content: center; z-index: 10; max-width: 55%; perspective: 1000px; }
+        .modal-title { margin-bottom: 1.5rem; z-index: 10; }
+        .modal-badge { display: inline-flex; padding: 0.8rem 2.5rem; border-radius: 9999px; background: rgba(255,255,255,0.6); border: 1px solid rgba(0,0,0,0.05); color: #2563eb; font-weight: 800; letter-spacing: 0.25em; font-size: 0.8rem; text-transform: uppercase; box-shadow: 0 10px 15px rgba(0,0,0,0.05); width: max-content; }
+        .modal-center-glow { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 450px; height: 450px; background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 70%); filter: blur(30px); z-index: 2; pointer-events: none; }
+        .modal-img { position: absolute; bottom: 0; left: 50%; height: 95%; max-width: 500px; object-fit: contain; object-position: bottom; z-index: 5; border: none !important; outline: none !important; background: transparent !important; filter: drop-shadow(0 20px 30px rgba(0,0,0,0.2)); pointer-events: none; }
+        #screenshot-modal-overlay.show .modal-img.modal-inner-anim { opacity: 1; filter: drop-shadow(0 20px 30px rgba(0,0,0,0.2)); animation: floatCutout 4s infinite ease-in-out 0.8s; transform: translateX(-50%) translateY(0); }
+        @keyframes floatCutout { 0%, 100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(-15px); } }
+        .modal-right { width: 320px; background: rgba(255, 255, 255, 0.45); backdrop-filter: blur(40px); -webkit-backdrop-filter: blur(40px); border-left: 1px solid rgba(255, 255, 255, 0.7); border-top-left-radius: 2rem; border-bottom-left-radius: 2rem; padding: 3rem 2.5rem; display: flex; flex-direction: column; justify-content: center; gap: 2.5rem; z-index: 10; position: absolute; right: 0; top: 0; bottom: 0; box-shadow: -15px 0 30px rgba(0,0,0,0.05); }
+        .modal-close { position: absolute; top: 2rem; right: 2rem; width: 44px; height: 44px; border-radius: 50%; border: 1px solid rgba(0,0,0,0.15); display: flex; align-items: center; justify-content: center; color: #0f172a; background: rgba(255,255,255,0.4); transition: background 0.3s, transform 0.2s cubic-bezier(0.16, 1, 0.3, 1); z-index: 20; cursor: none;}
+        .modal-close:hover { background: rgba(255,255,255,0.9); }
+        .info-label { font-size: 0.65rem; font-weight: 800; color: #64748b; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 0.5rem; }
+        .info-value-big { font-size: 4.5rem; font-weight: 900; color: #0f172a; font-family: 'Geist Mono', monospace; line-height: 1; letter-spacing: -2px; display: inline-block; transition: color 0.2s; cursor: none;}
+        .info-value-text { font-size: 1.15rem; font-weight: 800; color: #0f172a; line-height: 1.4; text-transform: uppercase; letter-spacing: 0.05em; }
+        .info-value-year { font-size: 1.75rem; font-weight: 800; color: #0f172a; font-family: 'Geist Mono', monospace; line-height: 1; letter-spacing: 0.05em; display: inline-block; transition: color 0.2s; cursor: none;}
+        .info-value-big:hover, .info-value-year:hover { color: #2563eb; text-shadow: 0 0 10px rgba(37,99,235,0.4); }
+        .dev-btn { display: inline-flex; align-items: center; gap: 0.5rem; margin-top: -0.5rem; padding: 0.75rem 1.2rem; background: rgba(16, 185, 129, 0.15); color: #059669; font-size: 0.75rem; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase; border-radius: 9999px; border: 1px solid rgba(16, 185, 129, 0.3); text-decoration: none; transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); cursor: none; width: max-content; box-shadow: 0 10px 20px rgba(16, 185, 129, 0.05); }
+        .dev-btn:hover { background: #059669; color: #ffffff; box-shadow: 0 15px 30px rgba(16, 185, 129, 0.25); transform: translateY(-3px); border-color: #059669; }
+        .dev-btn.hidden-btn { display: none !important; }
+
+        /* ===== IG BUTTON ===== */
+        .ig-btn-wrapper { max-height: 0; margin-top: 0 !important; transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1), margin-top 0.4s cubic-bezier(0.16, 1, 0.3, 1); display: flex; justify-content: center; align-items: flex-start; }
+        .tilt-wrapper:hover .ig-btn-wrapper { max-height: 50px; margin-top: 8px !important; }
+        .new-ig-btn { --primary: #E1306C; --neutral-1: #ffffff; --neutral-2: #f1f5f9; --radius: 20px; display: inline-flex; align-items: center; position: relative; height: 34px; width: 34px; border-radius: var(--radius); text-decoration: none; color: #0f172a; font-family: 'Geist', sans-serif; font-size: 10px; font-weight: 800; letter-spacing: 0.05em; background: transparent; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); box-shadow: 0 4px 10px rgba(0,0,0,0.05); cursor: none; opacity: 0; transform: translateY(15px); pointer-events: none; }
+        .tilt-wrapper:hover .new-ig-btn { opacity: 1; transform: translateY(0); pointer-events: auto; }
+        .new-ig-btn[href="#"] { filter: grayscale(1); opacity: 0 !important; pointer-events: none !important; }
+        .tilt-wrapper:hover .new-ig-btn[href="#"] { opacity: 0.5 !important; transform: translateY(0); pointer-events: none; }
+        .new-ig-btn:hover { width: 115px; border-radius: 10px; box-shadow: 0 8px 16px rgba(0,0,0,0.12); }
+        .new-ig-btn:after { content: ""; position: absolute; inset: 0; border-radius: inherit; border: 1.5px solid transparent; background: linear-gradient(var(--neutral-1), var(--neutral-2)) padding-box, linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3)) border-box; z-index: 0; transition: all 0.4s ease; }
+        .new-ig-btn::before { content: ""; inset: 2.5px; position: absolute; background: linear-gradient(to top, var(--neutral-1), var(--neutral-2)); border-radius: inherit; filter: blur(0.5px); z-index: 2; transition: all 0.4s ease; }
+        .new-ig-btn .state { position: relative; z-index: 3; display: flex; align-items: center; width: 100%; height: 100%; }
+        .new-ig-btn .icon { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); display: flex; align-items: center; justify-content: center; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+        .new-ig-btn .icon svg { width: 14px; height: 14px; overflow: visible; }
+        .new-ig-btn:hover .icon { left: 14px; transform: translate(0, -50%); }
+        .new-ig-btn p { display: flex; margin: 0 0 0 32px; opacity: 0; transition: opacity 0.2s ease; }
+        .new-ig-btn:hover p { opacity: 1; transition: opacity 0.4s ease 0.15s; }
+        .new-ig-btn .state p span { display: block; opacity: 0; transform: translateY(-5px); transition: all 0.3s ease; }
+        .new-ig-btn:hover .state p span { opacity: 1; animation: wave 0.5s ease forwards calc(var(--i) * 0.03s); }
+        @keyframes wave { 30% { opacity: 1; transform: translateY(2px); } 50% { opacity: 1; transform: translateY(-1px); color: var(--primary); text-shadow: 0 0 8px rgba(225, 48, 108, 0.4);} 100% { opacity: 1; transform: translateY(0); } }
+        .new-ig-btn .outline { position: absolute; border-radius: inherit; overflow: hidden; z-index: 1; opacity: 0; inset: -2px; transition: opacity 0.4s ease; }
+        .new-ig-btn .outline::before { content: ""; position: absolute; inset: -100%; background: conic-gradient(from 180deg, transparent 60%, var(--primary) 80%, transparent 100%); animation: spin 2s linear infinite; animation-play-state: paused; }
+        .new-ig-btn:hover .outline { opacity: 1; }
+        .new-ig-btn:hover .outline::before { animation-play-state: running; }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        .new-ig-btn:active .state p { opacity: 0 !important; transition: none !important; }
+        .new-ig-btn:active .icon { z-index: 10; }
+        .new-ig-btn:active .icon svg { animation: takeOff 0.7s ease-in forwards !important; }
+        @keyframes takeOff { 0% { transform: scale(1) rotate(0); } 20% { transform: scale(1.2) rotate(-15deg); } 100% { transform: translateX(100px) translateY(-50px) scale(0) rotate(45deg); opacity: 0; } }
+
+        /* ===== RESPONSIVE ===== */
+        @media screen and (max-width: 900px) {
+            #teacher-hero-section { padding: 40px 20px !important; gap: 20px !important; flex-direction: column !important; justify-content: center !important;}
+            .hero-header { top: 15px !important; left: 20px !important; right: 20px !important; }
+            .col-left, .col-right { width: 100% !important; text-align: center; align-items: center !important; min-height: auto;}
+            .text-name { font-size: clamp(28px, 6vw, 36px) !important; margin-bottom: 10px !important; justify-content: center;}
+            .story-phase { font-size: clamp(20px, 5vw, 26px) !important; text-align: center; width: 100%;}
+            .text-subtitle { font-size: 10px !important; margin-bottom: 6px !important; }
+            #teacher-img { width: clamp(160px, 45vw, 220px) !important; max-height: 40vh !important; margin: 20px 0;}
+            .col-center { order: -1; }
+            .bio-item { transform: translateX(0) translateY(20px); text-align: center;}
+            .bio-item.show { transform: translateY(0); }
+        }
+        @media (max-width: 768px) {
+            html, .modal-title, .modal-close, .info-value-big, .info-value-year, .dev-btn { cursor: auto; }
+            #cursor-dot, #cursor-ring { display: none !important; }
+            .modal-box { flex-direction: column; height: auto; min-height: 600px; overflow-y: auto; }
+            .modal-right { width: 100%; position: relative; border-radius: 0; padding: 2rem; border-top-left-radius: 2rem; border-top-right-radius: 2rem; border-left: none; border-top: 1px solid rgba(255,255,255,0.7);}
+            .modal-left { padding: 2rem; justify-content: flex-start; padding-bottom: 16rem; max-width: 100%;}
+            .modal-img { height: 45%; bottom: auto; top: 15rem; }
+            .modal-center-glow { width: 250px; height: 250px; top: 22rem; bottom: auto; transform: translateX(-50%); }
+        }
+    </style>
+
+    <title>Web Kelas XII RPL - ANGKASA</title>
+</head>
+<body class="geist_a71539c9-module__T19VSG__variable geist_mono_8d43a2aa-module__8Li5zG__variable antialiased">
+
+    <!-- AUDIO -->
+    <audio id="angkasa-audio" src="ANGKASA.mp3" preload="auto"></audio>
+
+    <!-- CUSTOM CURSOR -->
+    <div id="cursor-dot"></div>
+    <div id="cursor-ring"></div>
+
+    <!-- PRELOADER -->
+    <div id="preloader" class="fixed inset-0 w-full h-full bg-[#0f172a] z-[999999] flex flex-col justify-center items-center cursor-pointer select-none">
+        <div class="flex flex-col items-center space-y-12">
+            <div class="loader">
+                <div class="box1"></div>
+                <div class="box2"></div>
+                <div class="box3"></div>
+            </div>
+            <button id="enter-btn" class="text-white font-light tracking-[0.4em] text-xs uppercase opacity-0 translate-y-4 transition-all duration-1000 pointer-events-none hover:text-blue-400 bg-transparent border-none p-0 outline-none">
+                <span class="clean-pulse">masuk</span>
+            </button>
+        </div>
+    </div>
+
+    <main class="w-full min-h-screen text-slate-900 selection:bg-blue-500 selection:text-white">
+
+        <!-- NAVBAR -->
+        <nav class="fixed w-full z-[100] transition-all duration-500 py-4 sm:py-6 bg-transparent">
+            <div class="max-w-7xl mx-auto px-6 relative z-[110]">
+                <div class="flex items-center justify-center relative">
+                    <div class="hidden md:flex items-center gap-10 lg:gap-14">
+                        <a href="#" class="mag-btn relative px-2 py-1 text-sm font-bold tracking-wide transition-all duration-300 group text-white/90 hover:text-white">
+                            <span class="relative z-10 text-xs uppercase tracking-[0.2em] pointer-events-none font-bold">Home</span>
+                        </a>
+                        <span class="text-white/20 text-[10px] select-none pointer-events-none">|</span>
+                        <a href="#teacher" class="mag-btn relative px-2 py-1 text-sm font-bold tracking-wide transition-all duration-300 group text-white/90 hover:text-white">
+                            <span class="relative z-10 text-xs uppercase tracking-[0.2em] pointer-events-none font-bold">Teacher</span>
+                        </a>
+                        <span class="text-white/20 text-[10px] select-none pointer-events-none">|</span>
+                        <a href="#students" class="mag-btn relative px-2 py-1 text-sm font-bold tracking-wide transition-all duration-300 group text-white/90 hover:text-white">
+                            <span class="relative z-10 text-xs uppercase tracking-[0.2em] pointer-events-none font-bold">Students</span>
+                        </a>
+                    </div>
+                    <div class="md:hidden absolute right-0 flex items-center">
+                        <button class="mag-btn p-2 sm:p-3 rounded-2xl transition-all duration-300 z-[120] text-white hover:bg-white/10 relative" id="menu-toggle">
+                            <div class="w-5 h-4 sm:w-6 sm:h-5 relative flex flex-col justify-between pointer-events-none">
+                                <span class="h-0.5 w-full bg-current transform transition-all duration-300 rounded-full"></span>
+                                <span class="h-0.5 w-full bg-current transition-all duration-300 rounded-full"></span>
+                                <span class="h-0.5 w-full bg-current transform transition-all duration-300 rounded-full"></span>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div id="mobile-menu" class="md:hidden fixed inset-0 w-full h-screen bg-slate-900/95 backdrop-blur-xl transition-all duration-500 ease-in-out transform -translate-y-full z-[105]">
+                <div class="flex flex-col items-center justify-center h-full space-y-8 px-6">
+                    <a href="#" class="mobile-nav-link block text-4xl font-black text-white hover:text-blue-400 transition-all duration-300 tracking-tighter uppercase">Home</a>
+                    <a href="#teacher" class="mobile-nav-link block text-4xl font-black text-white hover:text-blue-400 transition-all duration-300 tracking-tighter uppercase">Teacher</a>
+                    <a href="#students" class="mobile-nav-link block text-4xl font-black text-white hover:text-blue-400 transition-all duration-300 tracking-tighter uppercase">Students</a>
+                    <div class="mt-12 text-center"><p class="text-slate-400 text-xs tracking-[0.3em] uppercase font-bold">Class of 2026</p></div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- HERO SECTION -->
+        <div class="relative w-full aspect-[16/10] md:h-screen flex items-center justify-center overflow-hidden bg-slate-900 transition-all duration-500">
+            <div class="absolute inset-0 z-0">
+                <img id="hero-bg" alt="Angkatan 2026" class="object-contain md:object-cover opacity-60 md:opacity-50 scale-105" style="position:absolute;height:100%;width:100%;left:0;top:0;right:0;bottom:0;color:transparent; will-change: transform;" src="hero.jpg" />
+                <div class="absolute inset-0 bg-gradient-to-b from-black/80 via-black/20 to-slate-900"></div>
+            </div>
+            <div class="relative z-10 flex flex-col items-center text-center px-6 max-w-4xl pt-28 md:pt-0">
+                <div class="relative inline-block mb-2 md:mb-4 scale-110 md:scale-110 origin-center fade-up-element" style="transition-delay: 0.1s;">
+                    <div class="focus-container" id="camera-container">
+                        <span class="focus-word active" id="word-0">ANG</span>
+                        <span class="focus-word" id="word-1">KASA</span>
+                        <div class="focus-frame" id="camera-frame">
+                            <span class="corner top-left"></span>
+                            <span class="corner top-right"></span>
+                            <span class="corner bottom-left"></span>
+                            <span class="corner bottom-right"></span>
+                        </div>
+                    </div>
+                </div>
+                <p id="typing-narration" class="text-[10px] sm:text-[11px] md:text-xs font-semibold text-slate-300/80 tracking-[0.18em] uppercase max-w-[280px] sm:max-w-md md:max-w-2xl mt-6 select-none min-h-[3em] sm:min-h-[2em]" style="font-family: 'Geist Mono', monospace; text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);"></p>
+            </div>
+        </div>
+
+        <!-- MARQUEE -->
+        <div class="marquee-container shadow-[0_10px_30px_-10px_rgba(0,0,0,0.5)]">
+            <div class="marquee-track" id="marquee-track">
+                <div class="marquee-group" id="marquee-group">
+                    <span class="filled">ANGKASA IX-A</span><span class="outline">ANGKASA IX-A</span>
+                    <span class="filled">ANGKASA IX-A</span><span class="outline">ANGKASA IX-A</span>
+                    <span class="filled">ANGKASA IX-A</span><span class="outline">ANGKASA IX-A</span>
+                </div>
+                <div class="marquee-group">
+                    <span class="filled">ANGKASA IX-A</span><span class="outline">ANGKASA IX-A</span>
+                    <span class="filled">ANGKASA IX-A</span><span class="outline">ANGKASA IX-A</span>
+                    <span class="filled">ANGKASA IX-A</span><span class="outline">ANGKASA IX-A</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- TEACHER SECTION -->
+        <section id="teacher">
+            <div id="ambient-bg"></div>
+            <div id="fairy-light"></div>
+            <div id="teacher-hero-section">
+                <div class="hero-header layer-mid">
+                    <div class="header-left"><span>Warner dan Spencer</span></div>
+                    <div class="header-right"><span>December 13, 2026</span></div>
+                </div>
+                <div class="col-left layer-front">
+                    <div class="text-subtitle">Profil Guru</div>
+                    <div id="story-container">
+                        <div class="story-phase" id="phase1">Mari berkenalan...</div>
+                        <div class="story-phase" id="phase2">Dengan Wali Kelas Kita...</div>
+                        <h1 class="story-phase text-name" id="interactive-name" style="opacity: 0; pointer-events: auto;">Cucu Siti. M</h1>
+                    </div>
+                    <div class="decorative-line"></div>
+                    <div class="text-bottom">Warner dan Spencer</div>
+                </div>
+                <div class="col-center layer-back">
+                    <div class="photo-breathing">
+                        <img src="guru.png" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iNDAwIj48dGV4dCB4PSI1MCUiIHk9IjUwJSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzk5OSIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiPlBob3RvIFBMQUNFSE9MREVSPC90ZXh0Pjwvc3ZnPg==';" alt="Foto Guru" id="teacher-img">
+                    </div>
+                </div>
+                <div class="col-right layer-mid">
+                    <div id="typing-area"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- STUDENTS SECTION -->
+        <section id="students" class="w-full py-24 relative overflow-hidden bg-[#f8fafc]">
+            <div class="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-500/5 rounded-full blur-[80px] -translate-y-1/2 translate-x-1/3 pointer-events-none"></div>
+            <div class="max-w-6xl mx-auto px-6 relative z-10">
+                <div class="flex flex-col lg:flex-row lg:items-end justify-between mb-16 gap-6" id="header-interactive-area">
+                    <div class="space-y-2 relative z-20">
+                        <div class="overflow-hidden">
+                            <span class="text-blue-600 font-bold text-xs tracking-[0.3em] uppercase block anim-text-container js-split-text">The Members</span>
+                        </div>
+                        <div class="overflow-visible p-1">
+                            <h2 class="text-6xl font-black tracking-tighter italic uppercase text-slate-900 block anim-text-container js-split-text" style="transition-delay: 0.2s;">The students</h2>
+                        </div>
+                        <div class="h-1 bg-blue-600 rounded-full anim-line"></div>
+                    </div>
+                    <div class="flex flex-col sm:flex-row items-center gap-4 relative z-20">
+                        <div class="relative group w-full sm:w-auto">
+                            <input type="text" id="searchInput" placeholder="Cari siswa..." class="pl-5 pr-12 py-3 rounded-xl border border-slate-200 text-sm w-full md:w-72 focus:md:w-96 bg-white/80 backdrop-blur-sm shadow-sm focus:shadow-blue-500/20 focus:ring-4 focus:ring-blue-500/20 transition-all duration-500 outline-none hover:border-blue-400 cursor-none"/>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Grid 37 Siswa -->
+                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6" id="studentGrid">
+
+                    <!-- Siswa 1 -->
+                    <div class="tilt-wrapper student-item" data-scroll-anim>
+                        <div class="tilt-card group relative bg-white rounded-2xl p-3 border border-slate-100 shadow-sm">
+                            <div class="relative w-full aspect-[4/5] overflow-hidden rounded-xl mb-4 bg-slate-200">
+                                <div class="shine-layer"></div>
+                                <img alt="Aira Nazwa" loading="lazy" class="student-photo object-cover w-full h-full grayscale-[40%]" src="1.AIRA NAZWA.jpg" />
+                                <div class="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                            </div>
+                            <div class="text-center space-y-1 tilt-text-content">
+                                <h3 class="text-[13px] font-black text-slate-900 truncate leading-none uppercase tracking-tight" title="Aira Nazwa">Aira</h3>
+                                <p class="text-[9px] text-blue-600 font-bold uppercase tracking-[0.2em]">Student</p>
+                                <div class="ig-btn-wrapper"><a href="https://www.instagram.com/4iraaanzwa_?igsh=MXMxYzZ0eXNmZmU4Zw==" target="_blank" class="new-ig-btn template-ig"></a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Siswa 2 -->
+                    <div class="tilt-wrapper student-item" data-scroll-anim>
+                        <div class="tilt-card group relative bg-white rounded-2xl p-3 border border-slate-100 shadow-sm">
+                            <div class="relative w-full aspect-[4/5] overflow-hidden rounded-xl mb-4 bg-slate-200">
+                                <div class="shine-layer"></div>
+                                <img alt="Ar Rasyid Rangga Riandi" loading="lazy" class="student-photo object-cover w-full h-full grayscale-[40%]" src="2.AR RASYID RANGGA RIANDI.jpg" />
+                                <div class="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                            </div>
+                            <div class="text-center space-y-1 tilt-text-content">
+                                <h3 class="text-[13px] font-black text-slate-900 truncate leading-none uppercase tracking-tight" title="Ar Rasyid Rangga Riandi">Ar Rasyid</h3>
+                                <p class="text-[9px] text-blue-600 font-bold uppercase tracking-[0.2em]">Student</p>
+                                <div class="ig-btn-wrapper"><a href="https://www.instagram.com/arrasyid1306?igsh=MzE5eXNxdjYyc3Bn" target="_blank" class="new-ig-btn template-ig"></a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Siswa 3 -->
+                    <div class="tilt-wrapper student-item" data-scroll-anim>
+                        <div class="tilt-card group relative bg-white rounded-2xl p-3 border border-slate-100 shadow-sm">
+                            <div class="relative w-full aspect-[4/5] overflow-hidden rounded-xl mb-4 bg-slate-200">
+                                <div class="shine-layer"></div>
+                                <img alt="Attariq Maulana" loading="lazy" class="student-photo object-cover w-full h-full grayscale-[40%]" src="3.ATTARIQ MAULANA.jpg" />
+                                <div class="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                            </div>
+                            <div class="text-center space-y-1 tilt-text-content">
+                                <h3 class="text-[13px] font-black text-slate-900 truncate leading-none uppercase tracking-tight" title="Attariq Maulana">Attariq</h3>
+                                <p class="text-[9px] text-blue-600 font-bold uppercase tracking-[0.2em]">Student</p>
+                                <div class="ig-btn-wrapper"><a href="https://www.instagram.com/txhriq_?igsh=MXRhMW03MTd3bHJiZA==" target="_blank" class="new-ig-btn template-ig"></a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Siswa 4 -->
+                    <div class="tilt-wrapper student-item" data-scroll-anim data-role="sekretaris" data-student='{"name":"Clara Calista Putri Safa Anhal","role":"Sekretaris","no":4,"photo":"sekretaris1.png","color":"#60a5fa"}'>
+                        <div class="tilt-card role-card group relative bg-white rounded-2xl p-3 border border-slate-100 shadow-sm">
+                            <div class="relative w-full aspect-[4/5] overflow-hidden rounded-xl mb-4 bg-slate-200">
+                                <div class="shine-layer"></div>
+                                <img alt="Clara Calista Putri Safa Anhal" loading="lazy" class="student-photo object-cover w-full h-full grayscale-[40%]" src="4.CLARA CALISTA PUTRI SAFA ANHAL.jpg" />
+                                <div class="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                            </div>
+                            <div class="text-center space-y-1 tilt-text-content">
+                                <h3 class="text-[13px] font-black text-slate-900 truncate leading-none uppercase tracking-tight" title="Clara Calista Putri Safa Anhal">Clara</h3>
+                                <p class="text-[9px] text-blue-600 font-bold uppercase tracking-[0.2em]">Sekretaris</p>
+                                <div class="ig-btn-wrapper"><a href="https://www.instagram.com/clara_calista03?igsh=MTc5enBsZnZzbHBwaw==" target="_blank" class="new-ig-btn template-ig"></a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Siswa 5 -->
+                    <div class="tilt-wrapper student-item" data-scroll-anim>
+                        <div class="tilt-card group relative bg-white rounded-2xl p-3 border border-slate-100 shadow-sm">
+                            <div class="relative w-full aspect-[4/5] overflow-hidden rounded-xl mb-4 bg-slate-200">
+                                <div class="shine-layer"></div>
+                                <img alt="Devita Maharani" loading="lazy" class="student-photo object-cover w-full h-full grayscale-[40%]" src="5.DEVITA MAHARANI.jpg" />
+                                <div class="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                            </div>
+                            <div class="text-center space-y-1 tilt-text-content">
+                                <h3 class="text-[13px] font-black text-slate-900 truncate leading-none uppercase tracking-tight" title="Devita Maharani">Devita</h3>
+                                <p class="text-[9px] text-blue-600 font-bold uppercase tracking-[0.2em]">Student</p>
+                                <div class="ig-btn-wrapper"><a href="https://www.instagram.com/dvita_vit?igsh=bW84ZGpvd3pwYmg5" target="_blank" class="new-ig-btn template-ig"></a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Siswa 6 -->
+                    <div class="tilt-wrapper student-item" data-scroll-anim data-role="wakil" data-student='{"name":"Dira Faturohman","role":"Wakil Ketua","no":6,"photo":"wakil1.png","color":"#a855f7"}'>
+                        <div class="tilt-card role-card group relative bg-white rounded-2xl p-3 border border-slate-100 shadow-sm">
+                            <div class="relative w-full aspect-[4/5] overflow-hidden rounded-xl mb-4 bg-slate-200">
+                                <div class="shine-layer"></div>
+                                <img alt="Dira Faturohman" loading="lazy" class="student-photo object-cover w-full h-full grayscale-[40%]" src="6.DIRA FATUROHMAN.jpg" />
+                                <div class="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                            </div>
+                            <div class="text-center space-y-1 tilt-text-content">
+                                <h3 class="text-[13px] font-black text-slate-900 truncate leading-none uppercase tracking-tight" title="Dira Faturohman">Dira</h3>
+                                <p class="text-[9px] text-purple-500 font-bold uppercase tracking-[0.2em]">Wakil ketua</p>
+                                <div class="ig-btn-wrapper"><a href="https://www.instagram.com/diraa_326795?igsh=aG5tb3ZvNG9hc281" target="_blank" class="new-ig-btn template-ig"></a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Siswa 7 -->
+                    <div class="tilt-wrapper student-item" data-scroll-anim data-role="keamanan" data-student='{"name":"Dzubyan Shafiq Abdillah","role":"Keamanan","no":7,"photo":"keamanan1.png","color":"#94a3b8"}'>
+                        <div class="tilt-card role-card group relative bg-white rounded-2xl p-3 border border-slate-100 shadow-sm">
+                            <div class="relative w-full aspect-[4/5] overflow-hidden rounded-xl mb-4 bg-slate-200">
+                                <div class="shine-layer"></div>
+                                <img alt="Dzubyan Shafiq Abdillah" loading="lazy" class="student-photo object-cover w-full h-full grayscale-[40%]" src="7.DZUBYAN SHAFIQ ABDILLAH.jpg" />
+                                <div class="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                            </div>
+                            <div class="text-center space-y-1 tilt-text-content">
+                                <h3 class="text-[13px] font-black text-slate-900 truncate leading-none uppercase tracking-tight" title="Dzubyan Shafiq Abdillah">Dzubyan</h3>
+                                <p class="text-[9px] text-slate-500 font-bold uppercase tracking-[0.2em]">Keamanan</p>
+                                <div class="ig-btn-wrapper"><a href="#" target="_blank" class="new-ig-btn template-ig"></a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Siswa 8 -->
+                    <div class="tilt-wrapper student-item" data-scroll-anim>
+                        <div class="tilt-card group relative bg-white rounded-2xl p-3 border border-slate-100 shadow-sm">
+                            <div class="relative w-full aspect-[4/5] overflow-hidden rounded-xl mb-4 bg-slate-200">
+                                <div class="shine-layer"></div>
+                                <img alt="Elsiana Putri Ramadhan" loading="lazy" class="student-photo object-cover w-full h-full grayscale-[40%]" src="8.ELSIANA PUTRI RAMADHAN.jpg" />
+                                <div class="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                            </div>
+                            <div class="text-center space-y-1 tilt-text-content">
+                                <h3 class="text-[13px] font-black text-slate-900 truncate leading-none uppercase tracking-tight" title="Elsiana Putri Ramadhan">Elsiana</h3>
+                                <p class="text-[9px] text-blue-600 font-bold uppercase tracking-[0.2em]">Student</p>
+                                <div class="ig-btn-wrapper"><a href="https://www.instagram.com/e_lsiana?igsh=cmp0a2g0N2RlZGpo" target="_blank" class="new-ig-btn template-ig"></a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Siswa 9 -->
+                    <div class="tilt-wrapper student-item" data-scroll-anim>
+                        <div class="tilt-card group relative bg-white rounded-2xl p-3 border border-slate-100 shadow-sm">
+                            <div class="relative w-full aspect-[4/5] overflow-hidden rounded-xl mb-4 bg-slate-200">
+                                <div class="shine-layer"></div>
+                                <img alt="Fadil Nurohmat" loading="lazy" class="student-photo object-cover w-full h-full grayscale-[40%]" src="9.FADIL NUROHMAT.jpg" />
+                                <div class="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                            </div>
+                            <div class="text-center space-y-1 tilt-text-content">
+                                <h3 class="text-[13px] font-black text-slate-900 truncate leading-none uppercase tracking-tight" title="Fadil Nurohmat">Fadil</h3>
+                                <p class="text-[9px] text-blue-600 font-bold uppercase tracking-[0.2em]">Student</p>
+                                <div class="ig-btn-wrapper"><a href="https://www.instagram.com/fdilnrhmt01?igsh=bW13MTgwZ3J1ZWJy" target="_blank" class="new-ig-btn template-ig"></a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Siswa 10 -->
+                    <div class="tilt-wrapper student-item" data-scroll-anim data-role="sekretaris" data-student='{"name":"Fauzan Haidar Akram","role":"Sekretaris","no":10,"photo":"sekretaris2.png","color":"#60a5fa"}'>
+                        <div class="tilt-card role-card group relative bg-white rounded-2xl p-3 border border-slate-100 shadow-sm">
+                            <div class="relative w-full aspect-[4/5] overflow-hidden rounded-xl mb-4 bg-slate-200">
+                                <div class="shine-layer"></div>
+                                <img alt="Fauzan Haidar Akram" loading="lazy" class="student-photo object-cover w-full h-full grayscale-[40%]" src="10.FAUZAN HAIDAR AKRAM.jpg" />
+                                <div class="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                            </div>
+                            <div class="text-center space-y-1 tilt-text-content">
+                                <h3 class="text-[13px] font-black text-slate-900 truncate leading-none uppercase tracking-tight" title="Fauzan Haidar Akram">Fauzan</h3>
+                                <p class="text-[9px] text-blue-600 font-bold uppercase tracking-[0.2em]">Sekretaris</p>
+                                <div class="ig-btn-wrapper"><a href="https://www.instagram.com/admirer__14?igsh=MTZqbWQ5OHc3NTdybg==" target="_blank" class="new-ig-btn template-ig"></a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Siswa 11 -->
+                    <div class="tilt-wrapper student-item" data-scroll-anim>
+                        <div class="tilt-card group relative bg-white rounded-2xl p-3 border border-slate-100 shadow-sm">
+                            <div class="relative w-full aspect-[4/5] overflow-hidden rounded-xl mb-4 bg-slate-200">
+                                <div class="shine-layer"></div>
+                                <img alt="Laesa Firzan Rampatik" loading="lazy" class="student-photo object-cover w-full h-full grayscale-[40%]" src="11.LAESA FIRZAN RAMPATIK.jpg" />
+                                <div class="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                            </div>
+                            <div class="text-center space-y-1 tilt-text-content">
+                                <h3 class="text-[13px] font-black text-slate-900 truncate leading-none uppercase tracking-tight" title="Laesa Firzan Rampatik">Laesa</h3>
+                                <p class="text-[9px] text-blue-600 font-bold uppercase tracking-[0.2em]">Student</p>
+                                <div class="ig-btn-wrapper"><a href="https://www.instagram.com/si_pijan?igsh=MWRudmNlcTkyYnRjYg==" target="_blank" class="new-ig-btn template-ig"></a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Siswa 12 -->
+                    <div class="tilt-wrapper student-item" data-scroll-anim>
+                        <div class="tilt-card group relative bg-white rounded-2xl p-3 border border-slate-100 shadow-sm">
+                            <div class="relative w-full aspect-[4/5] overflow-hidden rounded-xl mb-4 bg-slate-200">
+                                <div class="shine-layer"></div>
+                                <img alt="Luthfiyah Ulul Azmy" loading="lazy" class="student-photo object-cover w-full h-full grayscale-[40%]" src="12.LUTHFIYAH ULUL AZMY.jpg" />
+                                <div class="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                            </div>
+                            <div class="text-center space-y-1 tilt-text-content">
+                                <h3 class="text-[13px] font-black text-slate-900 truncate leading-none uppercase tracking-tight" title="Luthfiyah Ulul Azmy">Luthfiyah</h3>
+                                <p class="text-[9px] text-blue-600 font-bold uppercase tracking-[0.2em]">Student</p>
+                                <div class="ig-btn-wrapper"><a href="https://www.instagram.com/lutt_fyh?igsh=MWl6Nmc0bTllczVkaw==" target="_blank" class="new-ig-btn template-ig"></a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Siswa 13 -->
+                    <div class="tilt-wrapper student-item" data-scroll-anim>
+                        <div class="tilt-card group relative bg-white rounded-2xl p-3 border border-slate-100 shadow-sm">
+                            <div class="relative w-full aspect-[4/5] overflow-hidden rounded-xl mb-4 bg-slate-200">
+                                <div class="shine-layer"></div>
+                                <img alt="M. Shohibul Wafa" loading="lazy" class="student-photo object-cover w-full h-full grayscale-[40%]" src="13.M. SHOHIBUL WAFA.jpg" />
+                                <div class="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                            </div>
+                            <div class="text-center space-y-1 tilt-text-content">
+                                <h3 class="text-[13px] font-black text-slate-900 truncate leading-none uppercase tracking-tight" title="M. Shohibul Wafa">Shohibul</h3>
+                                <p class="text-[9px] text-blue-600 font-bold uppercase tracking-[0.2em]">Student</p>
+                                <div class="ig-btn-wrapper"><a href="https://www.instagram.com/39mswfx?igsh=dnVzcXN0MGE5N3dk" target="_blank" class="new-ig-btn template-ig"></a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Siswa 14 -->
+                    <div class="tilt-wrapper student-item" data-scroll-anim data-role="kebersihan" data-student='{"name":"Marissa Rajiyyah Sutanto","role":"Kebersihan","no":14,"photo":"kebersihan1.png","color":"#4ade80"}'>
+                        <div class="tilt-card role-card group relative bg-white rounded-2xl p-3 border border-slate-100 shadow-sm">
+                            <div class="relative w-full aspect-[4/5] overflow-hidden rounded-xl mb-4 bg-slate-200">
+                                <div class="shine-layer"></div>
+                                <img alt="Marissa Rajiyyah Sutanto" loading="lazy" class="student-photo object-cover w-full h-full grayscale-[40%]" src="14.MARISSA RAJIYYAH SUTANTO.jpg" />
+                                <div class="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                            </div>
+                            <div class="text-center space-y-1 tilt-text-content">
+                                <h3 class="text-[13px] font-black text-slate-900 truncate leading-none uppercase tracking-tight" title="Marissa Rajiyyah Sutanto">Marissa</h3>
+                                <p class="text-[9px] text-green-500 font-bold uppercase tracking-[0.2em]">Kebersihan</p>
+                                <div class="ig-btn-wrapper"><a href="https://www.instagram.com/sojudashh_?igsh=enJ3c2x3dDR1cXEw" target="_blank" class="new-ig-btn template-ig"></a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Siswa 15 -->
+                    <div class="tilt-wrapper student-item" data-scroll-anim data-role="bendahara" data-student='{"name":"Marsa Wulandari","role":"Bendahara","no":15,"photo":"bendahara1.png","color":"#fbbf24"}'>
+                        <div class="tilt-card role-card group relative bg-white rounded-2xl p-3 border border-slate-100 shadow-sm">
+                            <div class="relative w-full aspect-[4/5] overflow-hidden rounded-xl mb-4 bg-slate-200">
+                                <div class="shine-layer"></div>
+                                <img alt="Marsa Wulandari" loading="lazy" class="student-photo object-cover w-full h-full grayscale-[40%]" src="15.MARSA WULANDARI.jpg" />
+                                <div class="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                            </div>
+                            <div class="text-center space-y-1 tilt-text-content">
+                                <h3 class="text-[13px] font-black text-slate-900 truncate leading-none uppercase tracking-tight" title="Marsa Wulandari">Marsa</h3>
+                                <p class="text-[9px] text-amber-500 font-bold uppercase tracking-[0.2em]">Bendahara</p>
+                                <div class="ig-btn-wrapper"><a href="https://www.instagram.com/marchsscha?igsh=MWd4ZGJsdXp6b2w1eQ==" target="_blank" class="new-ig-btn template-ig"></a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Siswa 16 -->
+                    <div class="tilt-wrapper student-item" data-scroll-anim>
+                        <div class="tilt-card group relative bg-white rounded-2xl p-3 border border-slate-100 shadow-sm">
+                            <div class="relative w-full aspect-[4/5] overflow-hidden rounded-xl mb-4 bg-slate-200">
+                                <div class="shine-layer"></div>
+                                <img alt="Meisya Siti Nailima Putri Sasongko" loading="lazy" class="student-photo object-cover w-full h-full grayscale-[40%]" src="16.MEISYA SITI NAILIMA PUTRI SASONGKO.jpg" />
+                                <div class="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                            </div>
+                            <div class="text-center space-y-1 tilt-text-content">
+                                <h3 class="text-[13px] font-black text-slate-900 truncate leading-none uppercase tracking-tight" title="Meisya Siti Nailima Putri Sasongko">Meisya</h3>
+                                <p class="text-[9px] text-blue-600 font-bold uppercase tracking-[0.2em]">Student</p>
+                                <div class="ig-btn-wrapper"><a href="https://www.instagram.com/ecacameisya_?igsh=cHo4dHl6cnB1OGIx" target="_blank" class="new-ig-btn template-ig"></a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Siswa 17 -->
+                    <div class="tilt-wrapper student-item" data-scroll-anim>
+                        <div class="tilt-card group relative bg-white rounded-2xl p-3 border border-slate-100 shadow-sm">
+                            <div class="relative w-full aspect-[4/5] overflow-hidden rounded-xl mb-4 bg-slate-200">
+                                <div class="shine-layer"></div>
+                                <img alt="Mellisa Trirahma Maulida" loading="lazy" class="student-photo object-cover w-full h-full grayscale-[40%]" src="17.MELLISA TRIRAHMA MAULIDA.jpg" />
+                                <div class="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                            </div>
+                            <div class="text-center space-y-1 tilt-text-content">
+                                <h3 class="text-[13px] font-black text-slate-900 truncate leading-none uppercase tracking-tight" title="Mellisa Trirahma Maulida">Mellisa</h3>
+                                <p class="text-[9px] text-blue-600 font-bold uppercase tracking-[0.2em]">Student</p>
+                                <div class="ig-btn-wrapper"><a href="https://www.instagram.com/meliisaa.1503?igsh=MW8wbmZhNThuOTVheg==" target="_blank" class="new-ig-btn template-ig"></a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Siswa 18 -->
+                    <div class="tilt-wrapper student-item" data-scroll-anim>
+                        <div class="tilt-card group relative bg-white rounded-2xl p-3 border border-slate-100 shadow-sm">
+                            <div class="relative w-full aspect-[4/5] overflow-hidden rounded-xl mb-4 bg-slate-200">
+                                <div class="shine-layer"></div>
+                                <img alt="Alif" loading="lazy" class="student-photo object-cover w-full h-full grayscale-[40%]" src="18.ALIF.jpg" />
+                                <div class="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                            </div>
+                            <div class="text-center space-y-1 tilt-text-content">
+                                <h3 class="text-[13px] font-black text-slate-900 truncate leading-none uppercase tracking-tight" title="Alif">Alif</h3>
+                                <p class="text-[9px] text-blue-600 font-bold uppercase tracking-[0.2em]">Student</p>
+                                <div class="ig-btn-wrapper"><a href="https://www.instagram.com/mich_alif_19?igsh=NzQ1cnB6Nno1NHJn" target="_blank" class="new-ig-btn template-ig"></a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Siswa 19 -->
+                    <div class="tilt-wrapper student-item" data-scroll-anim>
+                        <div class="tilt-card group relative bg-white rounded-2xl p-3 border border-slate-100 shadow-sm">
+                            <div class="relative w-full aspect-[4/5] overflow-hidden rounded-xl mb-4 bg-slate-200">
+                                <div class="shine-layer"></div>
+                                <img alt="Moch Nabil Fauzi" loading="lazy" class="student-photo object-cover w-full h-full grayscale-[40%]" src="19.MOCH NABIL FAUZI.jpg" />
+                                <div class="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                            </div>
+                            <div class="text-center space-y-1 tilt-text-content">
+                                <h3 class="text-[13px] font-black text-slate-900 truncate leading-none uppercase tracking-tight" title="Moch Nabil Fauzi">Nabil</h3>
+                                <p class="text-[9px] text-blue-600 font-bold uppercase tracking-[0.2em]">Student</p>
+                                <div class="ig-btn-wrapper"><a href="https://www.instagram.com/lo0oidd_?igsh=MWphYzBobWMyZzJscw==" target="_blank" class="new-ig-btn template-ig"></a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Siswa 20 -->
+                    <div class="tilt-wrapper student-item" data-scroll-anim data-role="kebersihan" data-student='{"name":"Muhamad Rizki Swaqi Bayumi","role":"Kebersihan","no":20,"photo":"kebersihan2.png","color":"#4ade80"}'>
+                        <div class="tilt-card role-card group relative bg-white rounded-2xl p-3 border border-slate-100 shadow-sm">
+                            <div class="relative w-full aspect-[4/5] overflow-hidden rounded-xl mb-4 bg-slate-200">
+                                <div class="shine-layer"></div>
+                                <img alt="Muhamad Rizki Swaqi Bayumi" loading="lazy" class="student-photo object-cover w-full h-full grayscale-[40%]" src="20.MUHAMAD RIZKI SWAQI BAYUMI.jpg" />
+                                <div class="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                            </div>
+                            <div class="text-center space-y-1 tilt-text-content">
+                                <h3 class="text-[13px] font-black text-slate-900 truncate leading-none uppercase tracking-tight" title="Muhamad Rizki Swaqi Bayumi">Rizki</h3>
+                                <p class="text-[9px] text-green-500 font-bold uppercase tracking-[0.2em]">Kebersihan</p>
+                                <div class="ig-btn-wrapper"><a href="https://www.instagram.com/ikkyyyy_67?igsh=NXIxeHExbWRzMW9o" target="_blank" class="new-ig-btn template-ig"></a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Siswa 21 -->
+                    <div class="tilt-wrapper student-item" data-scroll-anim data-role="bendahara" data-student='{"name":"Muhammad Hafiz","role":"Bendahara","no":21,"photo":"bendahara2.png","color":"#fbbf24"}'>
+                        <div class="tilt-card role-card group relative bg-white rounded-2xl p-3 border border-slate-100 shadow-sm">
+                            <div class="relative w-full aspect-[4/5] overflow-hidden rounded-xl mb-4 bg-slate-200">
+                                <div class="shine-layer"></div>
+                                <img alt="Muhammad Hafiz" loading="lazy" class="student-photo object-cover w-full h-full grayscale-[40%]" src="21.MUHAMMAD HAFIZ.jpg" />
+                                <div class="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                            </div>
+                            <div class="text-center space-y-1 tilt-text-content">
+                                <h3 class="text-[13px] font-black text-slate-900 truncate leading-none uppercase tracking-tight" title="Muhammad Hafiz">Hafiz</h3>
+                                <p class="text-[9px] text-amber-500 font-bold uppercase tracking-[0.2em]">Bendahara</p>
+                                <div class="ig-btn-wrapper"><a href="https://www.instagram.com/fissyaputraaaa?igsh=OTBqZTd2b3U0cHFh" target="_blank" class="new-ig-btn template-ig"></a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Siswa 22 -->
+                    <div class="tilt-wrapper student-item" data-scroll-anim>
+                        <div class="tilt-card group relative bg-white rounded-2xl p-3 border border-slate-100 shadow-sm">
+                            <div class="relative w-full aspect-[4/5] overflow-hidden rounded-xl mb-4 bg-slate-200">
+                                <div class="shine-layer"></div>
+                                <img alt="Muhammad Iqbal Maulana" loading="lazy" class="student-photo object-cover w-full h-full grayscale-[40%]" src="22.MUHAMMAD IQBAL MAULANA.jpg" />
+                                <div class="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                            </div>
+                            <div class="text-center space-y-1 tilt-text-content">
+                                <h3 class="text-[13px] font-black text-slate-900 truncate leading-none uppercase tracking-tight" title="Muhammad Iqbal Maulana">Iqbal</h3>
+                                <p class="text-[9px] text-blue-600 font-bold uppercase tracking-[0.2em]">Student</p>
+                                <div class="ig-btn-wrapper"><a href="https://www.instagram.com/muhammadbalz?igsh=MTR5dXd5d3k3Znh4eA==" target="_blank" class="new-ig-btn template-ig"></a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Siswa 23 -->
+                    <div class="tilt-wrapper student-item" data-scroll-anim data-role="pendidikan" data-student='{"name":"Muhammad Naufal Fauzan","role":"Pendidikan","no":23,"photo":"pendidikan2.png","color":"#22d3ee"}'>
+                        <div class="tilt-card role-card group relative bg-white rounded-2xl p-3 border border-slate-100 shadow-sm">
+                            <div class="relative w-full aspect-[4/5] overflow-hidden rounded-xl mb-4 bg-slate-200">
+                                <div class="shine-layer"></div>
+                                <img alt="Muhammad Naufal Fauzan" loading="lazy" class="student-photo object-cover w-full h-full grayscale-[40%]" src="23.MUHAMMAD NAUFAL FAUZAN.jpg" />
+                                <div class="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                            </div>
+                            <div class="text-center space-y-1 tilt-text-content">
+                                <h3 class="text-[13px] font-black text-slate-900 truncate leading-none uppercase tracking-tight" title="Muhammad Naufal Fauzan">Naufal</h3>
+                                <p class="text-[9px] text-cyan-500 font-bold uppercase tracking-[0.2em]">Pendidikan</p>
+                                <div class="ig-btn-wrapper"><a href="https://www.instagram.com/itsme.nfl24?igsh=OHpjYXVwbzJuYjRj" target="_blank" class="new-ig-btn template-ig"></a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Siswa 24 -->
+                    <div class="tilt-wrapper student-item" data-scroll-anim>
+                        <div class="tilt-card group relative bg-white rounded-2xl p-3 border border-slate-100 shadow-sm">
+                            <div class="relative w-full aspect-[4/5] overflow-hidden rounded-xl mb-4 bg-slate-200">
+                                <div class="shine-layer"></div>
+                                <img alt="Muhammad Rizky Maulana" loading="lazy" class="student-photo object-cover w-full h-full grayscale-[40%]" src="24.MUHAMMAD RIZKY MAULANA.jpg" />
+                                <div class="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                            </div>
+                            <div class="text-center space-y-1 tilt-text-content">
+                                <h3 class="text-[13px] font-black text-slate-900 truncate leading-none uppercase tracking-tight" title="Muhammad Rizky Maulana">Rizky</h3>
+                                <p class="text-[9px] text-blue-600 font-bold uppercase tracking-[0.2em]">Student</p>
+                                <div class="ig-btn-wrapper"><a href="#" target="_blank" class="new-ig-btn template-ig"></a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Siswa 25 -->
+                    <div class="tilt-wrapper student-item" data-scroll-anim data-role="ketua" data-student='{"name":"Muhammad Siddik Safaat","role":"Ketua Kelas","no":25,"photo":"ketua1.png","color":"#ef4444"}'>
+                        <div class="tilt-card role-card group relative bg-white rounded-2xl p-3 border border-slate-100 shadow-sm">
+                            <div class="relative w-full aspect-[4/5] overflow-hidden rounded-xl mb-4 bg-slate-200">
+                                <div class="shine-layer"></div>
+                                <img alt="Muhammad Siddik Safaat" loading="lazy" class="student-photo object-cover w-full h-full grayscale-[40%]" src="25.MUHAMMAD SIDDIK SAFAAT.jpg" />
+                                <div class="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                            </div>
+                            <div class="text-center space-y-1 tilt-text-content">
+                                <h3 class="text-[13px] font-black text-slate-900 truncate leading-none uppercase tracking-tight" title="Muhammad Siddik Safaat">Siddik</h3>
+                                <p class="text-[9px] text-red-500 font-bold uppercase tracking-[0.2em]">Ketua Kelas</p>
+                                <div class="ig-btn-wrapper"><a href="#" target="_blank" class="new-ig-btn template-ig"></a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Siswa 26 -->
+                    <div class="tilt-wrapper student-item" data-scroll-anim data-role="pendidikan" data-student='{"name":"Mutiara Eldaniati Yusup","role":"Pendidikan","no":26,"photo":"pendidikan1.png","color":"#22d3ee"}'>
+                        <div class="tilt-card role-card group relative bg-white rounded-2xl p-3 border border-slate-100 shadow-sm">
+                            <div class="relative w-full aspect-[4/5] overflow-hidden rounded-xl mb-4 bg-slate-200">
+                                <div class="shine-layer"></div>
+                                <img alt="Mutiara Eldaniati Yusup" loading="lazy" class="student-photo object-cover w-full h-full grayscale-[40%]" src="26.MUTIARA ELDANIATI YUSUP.jpg" />
+                                <div class="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                            </div>
+                            <div class="text-center space-y-1 tilt-text-content">
+                                <h3 class="text-[13px] font-black text-slate-900 truncate leading-none uppercase tracking-tight" title="Mutiara Eldaniati Yusup">Mutiara</h3>
+                                <p class="text-[9px] text-cyan-500 font-bold uppercase tracking-[0.2em]">Pendidikan</p>
+                                <div class="ig-btn-wrapper"><a href="https://www.instagram.com/mutiaraelda_?igsh=bXI0b2xwNm5paXU0" target="_blank" class="new-ig-btn template-ig"></a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Siswa 27 -->
+                    <div class="tilt-wrapper student-item" data-scroll-anim>
+                        <div class="tilt-card group relative bg-white rounded-2xl p-3 border border-slate-100 shadow-sm">
+                            <div class="relative w-full aspect-[4/5] overflow-hidden rounded-xl mb-4 bg-slate-200">
+                                <div class="shine-layer"></div>
+                                <img alt="Nadia Putri" loading="lazy" class="student-photo object-cover w-full h-full grayscale-[40%]" src="27.NADIA PUTRI.jpg" />
+                                <div class="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                            </div>
+                            <div class="text-center space-y-1 tilt-text-content">
+                                <h3 class="text-[13px] font-black text-slate-900 truncate leading-none uppercase tracking-tight" title="Nadia Putri">Nadia</h3>
+                                <p class="text-[9px] text-blue-600 font-bold uppercase tracking-[0.2em]">Student</p>
+                                <div class="ig-btn-wrapper"><a href="https://www.instagram.com/nanadd_ya0?igsh=MXQyejc4MWljbHZmaQ==" target="_blank" class="new-ig-btn template-ig"></a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Siswa 28 -->
+                    <div class="tilt-wrapper student-item" data-scroll-anim>
+                        <div class="tilt-card group relative bg-white rounded-2xl p-3 border border-slate-100 shadow-sm">
+                            <div class="relative w-full aspect-[4/5] overflow-hidden rounded-xl mb-4 bg-slate-200">
+                                <div class="shine-layer"></div>
+                                <img alt="Nayla Rizki Kamalia Haq" loading="lazy" class="student-photo object-cover w-full h-full grayscale-[40%]" src="28.NAYLA RIZKI KAMALIA HAQ.jpg" />
+                                <div class="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                            </div>
+                            <div class="text-center space-y-1 tilt-text-content">
+                                <h3 class="text-[13px] font-black text-slate-900 truncate leading-none uppercase tracking-tight" title="Nayla Rizki Kamalia Haq">Nayla</h3>
+                                <p class="text-[9px] text-blue-600 font-bold uppercase tracking-[0.2em]">Student</p>
+                                <div class="ig-btn-wrapper"><a href="https://www.instagram.com/nayyylaaa_nayy?igsh=MXBnMHR5ZXEzdDU3MA%3D%3D&utm_source=qr" target="_blank" class="new-ig-btn template-ig"></a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Siswa 29 -->
+                    <div class="tilt-wrapper student-item" data-scroll-anim>
+                        <div class="tilt-card group relative bg-white rounded-2xl p-3 border border-slate-100 shadow-sm">
+                            <div class="relative w-full aspect-[4/5] overflow-hidden rounded-xl mb-4 bg-slate-200">
+                                <div class="shine-layer"></div>
+                                <img alt="Nurmailani" loading="lazy" class="student-photo object-cover w-full h-full grayscale-[40%]" src="29.NURMAILANI.jpg" />
+                                <div class="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                            </div>
+                            <div class="text-center space-y-1 tilt-text-content">
+                                <h3 class="text-[13px] font-black text-slate-900 truncate leading-none uppercase tracking-tight" title="Nurmailani">Nurmailani</h3>
+                                <p class="text-[9px] text-blue-600 font-bold uppercase tracking-[0.2em]">Student</p>
+                                <div class="ig-btn-wrapper"><a href="https://www.instagram.com/meylaniiii_26?igsh=b2pzNGkzcGJsY2hl" target="_blank" class="new-ig-btn template-ig"></a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Siswa 30 -->
+                    <div class="tilt-wrapper student-item" data-scroll-anim>
+                        <div class="tilt-card group relative bg-white rounded-2xl p-3 border border-slate-100 shadow-sm">
+                            <div class="relative w-full aspect-[4/5] overflow-hidden rounded-xl mb-4 bg-slate-200">
+                                <div class="shine-layer"></div>
+                                <img alt="Nygita Aulia Novita" loading="lazy" class="student-photo object-cover w-full h-full grayscale-[40%]" src="30.NYGITA AULIA NOVITA.jpg" />
+                                <div class="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                            </div>
+                            <div class="text-center space-y-1 tilt-text-content">
+                                <h3 class="text-[13px] font-black text-slate-900 truncate leading-none uppercase tracking-tight" title="Nygita Aulia Novita">Nygita</h3>
+                                <p class="text-[9px] text-blue-600 font-bold uppercase tracking-[0.2em]">Student</p>
+                                <div class="ig-btn-wrapper"><a href="https://www.instagram.com/geetha_taa?igsh=MTNlZmVxOGRzOXUzaQ==" target="_blank" class="new-ig-btn template-ig"></a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Siswa 31 -->
+                    <div class="tilt-wrapper student-item" data-scroll-anim>
+                        <div class="tilt-card group relative bg-white rounded-2xl p-3 border border-slate-100 shadow-sm">
+                            <div class="relative w-full aspect-[4/5] overflow-hidden rounded-xl mb-4 bg-slate-200">
+                                <div class="shine-layer"></div>
+                                <img alt="Putri Fadhilah Sari" loading="lazy" class="student-photo object-cover w-full h-full grayscale-[40%]" src="31.PUTRI FADHILAH SARI.jpg" />
+                                <div class="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                            </div>
+                            <div class="text-center space-y-1 tilt-text-content">
+                                <h3 class="text-[13px] font-black text-slate-900 truncate leading-none uppercase tracking-tight" title="Putri Fadhilah Sari">Putri</h3>
+                                <p class="text-[9px] text-blue-600 font-bold uppercase tracking-[0.2em]">Student</p>
+                                <div class="ig-btn-wrapper"><a href="https://www.instagram.com/mputtt2907?igsh=enhkbnp6cGxzaWtt" target="_blank" class="new-ig-btn template-ig"></a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Siswa 32 -->
+                    <div class="tilt-wrapper student-item" data-scroll-anim>
+                        <div class="tilt-card group relative bg-white rounded-2xl p-3 border border-slate-100 shadow-sm">
+                            <div class="relative w-full aspect-[4/5] overflow-hidden rounded-xl mb-4 bg-slate-200">
+                                <div class="shine-layer"></div>
+                                <img alt="Rafkha Septa Sonjaya" loading="lazy" class="student-photo object-cover w-full h-full grayscale-[40%]" src="32.RAFKHA SEPTA SONJAYA.jpg" />
+                                <div class="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                            </div>
+                            <div class="text-center space-y-1 tilt-text-content">
+                                <h3 class="text-[13px] font-black text-slate-900 truncate leading-none uppercase tracking-tight" title="Rafkha Septa Sonjaya">Rafkha</h3>
+                                <p class="text-[9px] text-blue-600 font-bold uppercase tracking-[0.2em]">Student</p>
+                                <div class="ig-btn-wrapper"><a href="https://www.instagram.com/lr.rfkhaspsonjay4?igsh=NHRjand4NHZveDZs" target="_blank" class="new-ig-btn template-ig"></a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Siswa 33 -->
+                    <div class="tilt-wrapper student-item" data-scroll-anim>
+                        <div class="tilt-card group relative bg-white rounded-2xl p-3 border border-slate-100 shadow-sm">
+                            <div class="relative w-full aspect-[4/5] overflow-hidden rounded-xl mb-4 bg-slate-200">
+                                <div class="shine-layer"></div>
+                                <img alt="Rayyan Azka Malik" loading="lazy" class="student-photo object-cover w-full h-full grayscale-[40%]" src="33.RAYYAN AZKA MALIK.jpg" />
+                                <div class="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                            </div>
+                            <div class="text-center space-y-1 tilt-text-content">
+                                <h3 class="text-[13px] font-black text-slate-900 truncate leading-none uppercase tracking-tight" title="Rayyan Azka Malik">Rayyan</h3>
+                                <p class="text-[9px] text-blue-600 font-bold uppercase tracking-[0.2em]">Student</p>
+                                <div class="ig-btn-wrapper"><a href="https://www.instagram.com/r4yy.nn?igsh=N2UzejgyeGE4d3lw" target="_blank" class="new-ig-btn template-ig"></a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Siswa 34 -->
+                    <div class="tilt-wrapper student-item" data-scroll-anim>
+                        <div class="tilt-card group relative bg-white rounded-2xl p-3 border border-slate-100 shadow-sm">
+                            <div class="relative w-full aspect-[4/5] overflow-hidden rounded-xl mb-4 bg-slate-200">
+                                <div class="shine-layer"></div>
+                                <img alt="Siti Azqja Nur Al Fiah" loading="lazy" class="student-photo object-cover w-full h-full grayscale-[40%]" src="34.SITI AZQJA NUR AL FIAH.jpg" />
+                                <div class="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                            </div>
+                            <div class="text-center space-y-1 tilt-text-content">
+                                <h3 class="text-[13px] font-black text-slate-900 truncate leading-none uppercase tracking-tight" title="Siti Azqja Nur Al Fiah">Azqja</h3>
+                                <p class="text-[9px] text-blue-600 font-bold uppercase tracking-[0.2em]">Student</p>
+                                <div class="ig-btn-wrapper"><a href="https://www.instagram.com/kiyyaaa_iyyaaa?igsh=MTU3aXBzM2tucm56eA==" target="_blank" class="new-ig-btn template-ig"></a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Siswa 35 -->
+                    <div class="tilt-wrapper student-item" data-scroll-anim>
+                        <div class="tilt-card group relative bg-white rounded-2xl p-3 border border-slate-100 shadow-sm">
+                            <div class="relative w-full aspect-[4/5] overflow-hidden rounded-xl mb-4 bg-slate-200">
+                                <div class="shine-layer"></div>
+                                <img alt="Sofa Rachmadani Kurnia Putri" loading="lazy" class="student-photo object-cover w-full h-full grayscale-[40%]" src="35.SOFA RACHMADANI KURNIA PUTRI.jpg" />
+                                <div class="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                            </div>
+                            <div class="text-center space-y-1 tilt-text-content">
+                                <h3 class="text-[13px] font-black text-slate-900 truncate leading-none uppercase tracking-tight" title="Sofa Rachmadani Kurnia Putri">Sofa</h3>
+                                <p class="text-[9px] text-blue-600 font-bold uppercase tracking-[0.2em]">Student</p>
+                                <div class="ig-btn-wrapper"><a href="https://www.instagram.com/soffaa13?igsh=MWxlYmhxbjF1eTNqMg==" target="_blank" class="new-ig-btn template-ig"></a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Siswa 36 -->
+                    <div class="tilt-wrapper student-item" data-scroll-anim>
+                        <div class="tilt-card group relative bg-white rounded-2xl p-3 border border-slate-100 shadow-sm">
+                            <div class="relative w-full aspect-[4/5] overflow-hidden rounded-xl mb-4 bg-slate-200">
+                                <div class="shine-layer"></div>
+                                <img alt="Wahid Anggian" loading="lazy" class="student-photo object-cover w-full h-full grayscale-[40%]" src="36.WAHID ANGGIAN.jpg" />
+                                <div class="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                            </div>
+                            <div class="text-center space-y-1 tilt-text-content">
+                                <h3 class="text-[13px] font-black text-slate-900 truncate leading-none uppercase tracking-tight" title="Wahid Anggian">Wahid</h3>
+                                <p class="text-[9px] text-blue-600 font-bold uppercase tracking-[0.2em]">Student</p>
+                                <div class="ig-btn-wrapper"><a href="https://www.instagram.com/hidddddddd11?igsh=aTV4ZXgzZml4YWpl" target="_blank" class="new-ig-btn template-ig"></a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Siswa 37 -->
+                    <div class="tilt-wrapper student-item" data-scroll-anim data-role="keamanan" data-student='{"name":"Zakia Nurfadilah","role":"Keamanan","no":37,"photo":"keamanan1.png","color":"#94a3b8"}'>
+                        <div class="tilt-card role-card group relative bg-white rounded-2xl p-3 border border-slate-100 shadow-sm">
+                            <div class="relative w-full aspect-[4/5] overflow-hidden rounded-xl mb-4 bg-slate-200">
+                                <div class="shine-layer"></div>
+                                <img alt="Zakia Nurfadilah" loading="lazy" class="student-photo object-cover w-full h-full grayscale-[40%]" src="37.ZAKIA NURFADILAH.jpg" />
+                                <div class="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                            </div>
+                            <div class="text-center space-y-1 tilt-text-content">
+                                <h3 class="text-[13px] font-black text-slate-900 truncate leading-none uppercase tracking-tight" title="Zakia Nurfadilah">Zakia</h3>
+                                <p class="text-[9px] text-slate-500 font-bold uppercase tracking-[0.2em]">Keamanan</p>
+                                <div class="ig-btn-wrapper"><a href="https://www.instagram.com/urlove_zyasy?igsh=MXF1aTU0MjZ2aXllNw==" target="_blank" class="new-ig-btn template-ig"></a></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="py-16 bg-slate-50 flex flex-col items-center justify-center space-y-6">
+            <div class="flex gap-8 text-[10px] font-bold text-slate-400 tracking-[0.3em] uppercase">
+                <a href="https://www.instagram.com/xii.rplcommunity" target="_blank" rel="noopener noreferrer" class="mag-btn hover:text-blue-600 transition-colors inline-block p-2"><span class="pointer-events-none">Instagram</span></a>
+            </div>
+            <div class="flex flex-col items-center gap-2">
+                <p class="text-[10px] text-slate-400 tracking-widest font-medium uppercase text-center">&copy; 2026 KELAS XII RPL. ALL RIGHTS RESERVED.</p>
+                <p class="text-[9px] text-slate-300 tracking-[0.2em] font-medium uppercase opacity-60">Epic Smooth Edition - Interaktif &amp; Nyata</p>
+            </div>
+        </footer>
+
+        <!-- SCROLL TO TOP -->
+        <button id="scrollTopBtn" class="mag-btn fixed bottom-8 right-8 bg-slate-900 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg hover:bg-blue-600 transition-all duration-300 z-50 opacity-0 invisible translate-y-4">
+            <svg class="w-6 h-6 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path></svg>
+        </button>
+
+    </main>
+
+    <!-- MODAL -->
+    <div id="screenshot-modal-overlay">
+        <div class="modal-box">
+            <div class="modal-left" id="modal-left-area">
+                <div id="modal-name" class="modal-title modal-inner-anim m-delay-1"></div>
+                <div>
+                    <div id="modal-badge" class="modal-badge modal-inner-anim m-delay-2"></div>
+                </div>
+            </div>
+            <div class="modal-center-glow"></div>
+            <img id="modal-img" src="" alt="" class="modal-img modal-inner-anim m-delay-3" />
+            <div class="modal-right">
+                <button id="modal-close" class="modal-close">
+                    <svg class="w-5 h-5 pointer-events-none" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+                <div class="modal-inner-anim m-delay-3">
+                    <div class="info-label">STATUS ABSENSI</div>
+                    <div id="modal-absen" class="info-value-big playable-number">#0</div>
+                </div>
+                <div class="modal-inner-anim m-delay-4">
+                    <div class="info-label">DIVISI KELAS</div>
+                    <div class="info-value-text">XII REKAYASA<br>PERANGKAT<br>LUNAK</div>
+                </div>
+                <div class="modal-inner-anim m-delay-5">
+                    <div class="info-label">ANGKATAN</div>
+                    <div id="modal-angkatan" class="info-value-year playable-number">2000</div>
+                </div>
+                <a href="untuk Devolever.html" target="_blank" id="dev-btn" class="dev-btn hidden-btn modal-inner-anim m-delay-6">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                    Lihat Portfolio
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ============================================
+        // IG BUTTON TEMPLATE INJECTION
+        // ============================================
+        const igBtnHTML = `
+            <div class="outline"></div>
+            <div class="state state--default">
+                <div class="icon">
+                    <svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g style="filter: url(#shadow)">
+                            <path d="M14.2199 21.63C13.0399 21.63 11.3699 20.8 10.0499 16.83L9.32988 14.67L7.16988 13.95C3.20988 12.63 2.37988 10.96 2.37988 9.78001C2.37988 8.61001 3.20988 6.93001 7.16988 5.60001L15.6599 2.77001C17.7799 2.06001 19.5499 2.27001 20.6399 3.35001C21.7299 4.43001 21.9399 6.21001 21.2299 8.33001L18.3999 16.82C17.0699 20.8 15.3999 21.63 14.2199 21.63ZM7.63988 7.03001C4.85988 7.96001 3.86988 9.06001 3.86988 9.78001C3.86988 10.5 4.85988 11.6 7.63988 12.52L10.1599 13.36C10.3799 13.43 10.5599 13.61 10.6299 13.83L11.4699 16.35C12.3899 19.13 13.4999 20.12 14.2199 20.12C14.9399 20.12 16.0399 19.13 16.9699 16.35L19.7999 7.86001C20.3099 6.32001 20.2199 5.06001 19.5699 4.41001C18.9199 3.76001 17.6599 3.68001 16.1299 4.19001L7.63988 7.03001Z" fill="currentColor"></path>
+                            <path d="M10.11 14.4C9.92005 14.4 9.73005 14.33 9.58005 14.18C9.29005 13.89 9.29005 13.41 9.58005 13.12L13.16 9.53C13.45 9.24 13.93 9.24 14.22 9.53C14.51 9.82 14.51 10.3 14.22 10.59L10.64 14.18C10.5 14.33 10.3 14.4 10.11 14.4Z" fill="currentColor"></path>
+                        </g>
+                        <defs><filter id="shadow"><feDropShadow dx="0" dy="1" stdDeviation="0.6" flood-opacity="0.5"></feDropShadow></filter></defs>
+                    </svg>
+                </div>
+                <p>
+                    <span style="--i:0">I</span><span style="--i:1">N</span><span style="--i:2">S</span><span style="--i:3">T</span><span style="--i:4">A</span><span style="--i:5">G</span><span style="--i:6">R</span><span style="--i:7">A</span><span style="--i:8">M</span>
+                </p>
+            </div>
+        `;
+        document.querySelectorAll('.template-ig').forEach(el => { el.innerHTML = igBtnHTML; });
+
+        // ============================================
+        // VANILLA FUZZY TEXT CLASS (from index7)
+        // ============================================
+        class VanillaFuzzyText {
+            constructor(container, textLines, fontSizeCss, lineHeightMult, color, shouldWrap) {
+                this.container = container;
+                this.canvas = document.createElement('canvas');
+                this.canvas.style.cursor = 'none';
+                this.container.appendChild(this.canvas);
+                this.ctx = this.canvas.getContext('2d', { willReadFrequently: true });
+                const temp = document.createElement('span');
+                temp.style.fontSize = fontSizeCss;
+                temp.style.fontFamily = "'Geist', sans-serif";
+                temp.style.fontWeight = '900';
+                temp.style.visibility = 'hidden';
+                temp.style.position = 'absolute';
+                document.body.appendChild(temp);
+                this.fontSize = parseFloat(window.getComputedStyle(temp).fontSize);
+                document.body.removeChild(temp);
+                this.lineHeight = this.fontSize * lineHeightMult;
+                this.color = color;
+                this.fuzzRange = 40;
+                this.baseIntensity = 0.0;
+                this.hoverIntensity = 0.8;
+                this.currentIntensity = 0;
+                this.isHovering = false;
+                this.offscreen = document.createElement('canvas');
+                this.offCtx = this.offscreen.getContext('2d', { willReadFrequently: true });
+                const fontStr = `900 ${this.fontSize}px 'Geist', sans-serif`;
+                this.offCtx.font = fontStr;
+                this.offCtx.textBaseline = 'top';
+                this.textLines = [];
+                if (shouldWrap) {
+                    const maxWContainer = (this.container.getBoundingClientRect().width || 400);
+                    const words = textLines[0].split(' ');
+                    let currentLine = words[0];
+                    for (let i = 1; i < words.length; i++) {
+                        const w = this.offCtx.measureText(currentLine + " " + words[i]).width;
+                        if (w < maxWContainer) { currentLine += " " + words[i]; }
+                        else { this.textLines.push(currentLine); currentLine = words[i]; }
+                    }
+                    this.textLines.push(currentLine);
+                } else {
+                    this.textLines = textLines;
+                }
+                let maxW = 0;
+                this.textLines.forEach(line => {
+                    const w = this.offCtx.measureText(line).width;
+                    if (w > maxW) maxW = w;
+                });
+                const letterSpacing = this.fontSize * 0.02;
+                maxW += this.textLines[0].length * letterSpacing;
+                const totalH = this.textLines.length * this.lineHeight;
+                this.offscreen.width = Math.ceil(maxW + 20);
+                this.offscreen.height = Math.ceil(totalH + this.fontSize * 0.4);
+                this.offCtx.font = fontStr;
+                this.offCtx.textBaseline = 'top';
+                this.offCtx.fillStyle = this.color;
+                this.textLines.forEach((line, i) => {
+                    let xPos = 0;
+                    for (const char of line) {
+                        this.offCtx.fillText(char, xPos, i * this.lineHeight);
+                        xPos += this.offCtx.measureText(char).width + letterSpacing;
+                    }
+                });
+                const padding = this.fuzzRange + 20;
+                this.canvas.width = this.offscreen.width + padding * 2;
+                this.canvas.height = this.offscreen.height + padding * 2;
+                this.canvas.style.width = '100%';
+                this.canvas.style.maxWidth = `${this.canvas.width}px`;
+                this.canvas.style.marginLeft = `-${padding}px`;
+                this.canvas.style.marginTop = `-${padding}px`;
+                this.ctx.translate(padding, padding);
+                this.handleEnter = () => this.isHovering = true;
+                this.handleLeave = () => this.isHovering = false;
+                this.handleTouch = (e) => { e.preventDefault(); this.isHovering = true; };
+                this.canvas.addEventListener('mouseenter', this.handleEnter);
+                this.canvas.addEventListener('mouseleave', this.handleLeave);
+                this.canvas.addEventListener('touchstart', this.handleTouch, {passive: false});
+                this.canvas.addEventListener('touchmove', this.handleTouch, {passive: false});
+                this.canvas.addEventListener('touchend', this.handleLeave);
+                this.lastTime = 0;
+                this.fps = 60;
+                this.animationId = null;
+                this.loop = this.loop.bind(this);
+                this.animationId = requestAnimationFrame(this.loop);
+            }
+            loop(timestamp) {
+                if (!this.canvas.isConnected) { cancelAnimationFrame(this.animationId); return; }
+                const frameDur = 1000 / this.fps;
+                if (timestamp - this.lastTime >= frameDur) {
+                    this.lastTime = timestamp;
+                    const target = this.isHovering ? this.hoverIntensity : this.baseIntensity;
+                    this.currentIntensity += (target - this.currentIntensity) * 0.15;
+                    this.ctx.clearRect(-this.fuzzRange - 20, -this.fuzzRange - 20, this.canvas.width, this.canvas.height);
+                    const w = this.offscreen.width;
+                    const h = this.offscreen.height;
+                    if (this.currentIntensity > 0.01) {
+                        for (let j = 0; j < h; j++) {
+                            const dx = Math.floor(this.currentIntensity * (Math.random() - 0.5) * this.fuzzRange);
+                            this.ctx.drawImage(this.offscreen, 0, j, w, 1, dx, j, w, 1);
+                        }
+                    } else {
+                        this.ctx.drawImage(this.offscreen, 0, 0);
+                    }
+                }
+                this.animationId = requestAnimationFrame(this.loop);
+            }
+            destroy() {
+                cancelAnimationFrame(this.animationId);
+                this.canvas.removeEventListener('mouseenter', this.handleEnter);
+                this.canvas.removeEventListener('mouseleave', this.handleLeave);
+                this.canvas.removeEventListener('touchstart', this.handleTouch);
+                this.canvas.removeEventListener('touchmove', this.handleTouch);
+                this.canvas.removeEventListener('touchend', this.handleLeave);
+                this.canvas.remove();
+            }
+        }
+
+        // ============================================
+        // MAIN SCRIPT
+        // ============================================
+        const isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+
+        // ----- CUSTOM CURSOR (from untitled) -----
+        const cursorDot = document.getElementById('cursor-dot');
+        const cursorRing = document.getElementById('cursor-ring');
+        let mouseX = window.innerWidth / 2, mouseY = window.innerHeight / 2;
+        let ringX = mouseX, ringY = mouseY;
+
+        if (!isTouchDevice && cursorDot && cursorRing) {
+            window.addEventListener('mousemove', (e) => {
+                mouseX = e.clientX; mouseY = e.clientY;
+                cursorDot.style.left = `${mouseX}px`; cursorDot.style.top = `${mouseY}px`;
+            });
+            function animateCursor() {
+                ringX += (mouseX - ringX) * 0.15; ringY += (mouseY - ringY) * 0.15;
+                cursorRing.style.left = `${ringX}px`; cursorRing.style.top = `${ringY}px`;
+                requestAnimationFrame(animateCursor);
+            }
+            animateCursor();
+        }
+
+        function updateInteractableListeners() {
+            if (isTouchDevice) return;
+            const interactables = document.querySelectorAll('a, button, input, .mag-btn, .tilt-card, .text-name span, .bio-value, .new-ig-btn, .modal-close, .info-value-big, .info-value-year, .dev-btn');
+            interactables.forEach(el => {
+                el.removeEventListener('mouseenter', addHoverClass);
+                el.removeEventListener('mouseleave', removeHoverClass);
+                el.addEventListener('mouseenter', addHoverClass);
+                el.addEventListener('mouseleave', removeHoverClass);
+            });
+        }
+        const addHoverClass = () => document.body.classList.add('hovering');
+        const removeHoverClass = () => document.body.classList.remove('hovering');
+        updateInteractableListeners();
+
+        // ----- TYPING NARRATION -----
+        function startTypingNarration() {
+            const target = document.getElementById('typing-narration');
+            if (!target) return;
+            const rawText = "Welcome to angkasa di mana seribu cerita disimpan dalam satu tempat.";
+            let index = 0; let isDeleting = false;
+            target.classList.add('typing-cursor');
+            function typeLoop() {
+                if (!isDeleting) {
+                    if (index < rawText.length) {
+                        target.innerHTML = rawText.substring(0, index + 1);
+                        index++;
+                        setTimeout(typeLoop, Math.random() * 50 + 100);
+                    } else { isDeleting = true; setTimeout(typeLoop, 5000); }
+                } else {
+                    if (index > 0) {
+                        target.innerHTML = rawText.substring(0, index - 1);
+                        index--;
+                        setTimeout(typeLoop, Math.random() * 20 + 40);
+                    } else { isDeleting = false; setTimeout(typeLoop, 1500); }
+                }
+            }
+            typeLoop();
+        }
+
+        // ----- PRELOADER -----
+        window.addEventListener('load', () => {
+            const preloader = document.getElementById('preloader');
+            const enterBtn = document.getElementById('enter-btn');
+            const audio = document.getElementById('angkasa-audio');
+            setTimeout(() => {
+                if (enterBtn) {
+                    enterBtn.classList.remove('opacity-0', 'translate-y-4', 'pointer-events-none');
+                    enterBtn.classList.add('opacity-100', 'translate-y-0');
+                }
+            }, 1200);
+            const handleEnterApp = () => {
+                if (audio) { audio.play().catch(err => console.log("Audio play blocked:", err)); }
+                preloader.style.opacity = '0'; preloader.style.pointerEvents = 'none';
+                setTimeout(() => { preloader.style.visibility = 'hidden'; }, 800);
+                setTimeout(startTypingNarration, 600);
+            };
+            if (preloader) preloader.addEventListener('click', handleEnterApp);
+            if (enterBtn) enterBtn.addEventListener('click', (e) => { e.stopPropagation(); handleEnterApp(); });
+        });
+
+        document.addEventListener("DOMContentLoaded", () => {
+
+            // ----- HERO PARALLAX -----
+            const heroBg = document.getElementById('hero-bg');
+            if (heroBg && !isTouchDevice) {
+                window.addEventListener('mousemove', (e) => {
+                    const x = (window.innerWidth - e.pageX * 2) / 90;
+                    const y = (window.innerHeight - e.pageY * 2) / 90;
+                    heroBg.style.transform = `translate(${x}px, ${y}px) scale(1.05)`;
+                });
+            }
+
+            // ----- CAMERA FOCUS -----
+            const focusWords = document.querySelectorAll('.focus-word');
+            const focusFrame = document.getElementById('camera-frame');
+            let currentFocusIndex = 0;
+            if (focusFrame && focusWords.length > 0) {
+                function updateCameraFocus() {
+                    const currentWord = focusWords[currentFocusIndex];
+                    focusWords.forEach((word, idx) => {
+                        if (idx === currentFocusIndex) { word.style.filter = 'blur(0px)'; word.classList.add('active'); }
+                        else { word.style.filter = 'blur(6px)'; word.classList.remove('active'); }
+                    });
+                    const padX = 10; const padY = 0;
+                    focusFrame.style.left = (currentWord.offsetLeft - padX) + 'px';
+                    focusFrame.style.top = (currentWord.offsetTop - padY) + 'px';
+                    focusFrame.style.width = (currentWord.offsetWidth + padX * 2) + 'px';
+                    focusFrame.style.height = (currentWord.offsetHeight + padY * 2) + 'px';
+                    currentFocusIndex = (currentFocusIndex + 1) % focusWords.length;
+                }
+                setTimeout(updateCameraFocus, 100);
+                setInterval(updateCameraFocus, 2500);
+            }
+
+            // ----- SCROLL REVEAL -----
+            const hiddenElements = document.querySelectorAll('.fade-up-element');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const el = entry.target;
+                        if (el.classList.contains('fade-up-element')) el.classList.add('visible');
+                        observer.unobserve(el);
+                    }
+                });
+            }, { threshold: 0.1 });
+            hiddenElements.forEach(el => observer.observe(el));
+
+            // ----- MOBILE MENU -----
+            const menuBtn = document.getElementById('menu-toggle');
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (menuBtn && mobileMenu) {
+                menuBtn.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('-translate-y-full');
+                });
+                const mobileLinks = mobileMenu.querySelectorAll('a');
+                mobileLinks.forEach(link => {
+                    link.addEventListener('click', () => { mobileMenu.classList.add('-translate-y-full'); });
+                });
+            }
+
+            // ----- SCROLL TO TOP -----
+            const scrollBtn = document.getElementById('scrollTopBtn');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 500) {
+                    scrollBtn.classList.add('visible');
+                    scrollBtn.classList.remove('opacity-0', 'invisible', 'translate-y-4');
+                } else {
+                    scrollBtn.classList.remove('visible');
+                    scrollBtn.classList.add('opacity-0', 'invisible', 'translate-y-4');
+                }
+            });
+            scrollBtn.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+
+            // ----- MARQUEE -----
+            const scroller = document.getElementById('marquee-track');
+            const scrollerGroup = document.getElementById('marquee-group');
+            if (scroller && scrollerGroup) {
+                let baseX = 0; let direction = 1; let baseVelocity = 1.5;
+                let lastScrollY = window.scrollY; let targetVelocity = 0; let currentVelocity = 0;
+                function updateMarquee() {
+                    const currentScrollY = window.scrollY; const scrollDelta = currentScrollY - lastScrollY;
+                    if (Math.abs(scrollDelta) > 0) { direction = scrollDelta > 0 ? 1 : -1; targetVelocity = Math.min(Math.abs(scrollDelta) * 0.15, 8); }
+                    else { targetVelocity = 0; }
+                    currentVelocity += (targetVelocity - currentVelocity) * 0.1;
+                    baseX -= direction * baseVelocity * (1 + currentVelocity);
+                    const groupWidth = scrollerGroup.offsetWidth;
+                    if (baseX <= -groupWidth) { baseX += groupWidth; } else if (baseX > 0) { baseX -= groupWidth; }
+                    scroller.style.transform = `translate3d(${baseX}px, 0, 0)`; lastScrollY = currentScrollY;
+                    requestAnimationFrame(updateMarquee);
+                }
+                requestAnimationFrame(updateMarquee);
+            }
+
+            // ----- MAGNETIC BUTTONS -----
+            if (!isTouchDevice) {
+                const magBtns = document.querySelectorAll('.mag-btn');
+                magBtns.forEach(btn => {
+                    btn.addEventListener('mousemove', (e) => {
+                        const rect = btn.getBoundingClientRect();
+                        const x = e.clientX - rect.left - rect.width / 2;
+                        const y = e.clientY - rect.top - rect.height / 2;
+                        btn.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+                    });
+                    btn.addEventListener('mouseleave', () => { btn.style.transform = `translate(0px, 0px)`; });
+                });
+            }
+
+            // ============================================
+            // TEACHER SECTION (from untitled)
+            // ============================================
+            const teacherSection = document.getElementById('teacher');
+            if (teacherSection) {
+                let tTargetX = teacherSection.offsetWidth / 2;
+                let tTargetY = teacherSection.offsetHeight / 2;
+                let tCurrentX = tTargetX; let tCurrentY = tTargetY;
+                const fairyLight = document.getElementById('fairy-light');
+                const tHeroSection = document.getElementById('teacher-hero-section');
+                teacherSection.addEventListener('mousemove', (e) => {
+                    const rect = teacherSection.getBoundingClientRect();
+                    tTargetX = e.clientX - rect.left; tTargetY = e.clientY - rect.top;
+                });
+                if (isTouchDevice) {
+                    teacherSection.addEventListener('touchmove', (e) => {
+                        const rect = teacherSection.getBoundingClientRect();
+                        tTargetX = e.touches[0].clientX - rect.left; tTargetY = e.touches[0].clientY - rect.top;
+                    }, { passive: true });
+                    teacherSection.addEventListener('touchstart', (e) => {
+                        const rect = teacherSection.getBoundingClientRect();
+                        tTargetX = e.touches[0].clientX - rect.left; tTargetY = e.touches[0].clientY - rect.top;
+                    }, { passive: true });
+                }
+                const nameEl = document.getElementById('interactive-name');
+                const nameText = nameEl.innerText;
+                nameEl.innerHTML = '';
+                const physicsLetters = [];
+                nameText.split('').forEach((char) => {
+                    const span = document.createElement('span');
+                    span.innerText = char === ' ' ? '\u00A0' : char;
+                    nameEl.appendChild(span);
+                    physicsLetters.push({
+                        el: span, y: 0, z: 0, rY: 0, vy: 0, vz: 0, vrY: 0, targetY: 0,
+                        blurVal: 0, targetBlur: 0,
+                        baseColor: [26, 95, 95], targetColor: [15, 23, 42], currentColor: [26, 95, 95],
+                        glowActive: 0
+                    });
+                });
+                const triggerWaveEffect = () => {
+                    physicsLetters.forEach((letter, index) => {
+                        setTimeout(() => {
+                            letter.vy = -14; letter.targetBlur = 0.3; letter.glowActive = 1;
+                            setTimeout(() => { letter.targetBlur = 0; letter.glowActive = 0; }, 500);
+                        }, index * 45);
+                    });
+                };
+                nameEl.addEventListener('mousedown', triggerWaveEffect);
+                nameEl.addEventListener('touchstart', (e) => { e.preventDefault(); triggerWaveEffect(); }, {passive: false});
+                let sceneRotX = 0, sceneRotY = 0;
+                function animateTeacherScene() {
+                    tCurrentX += (tTargetX - tCurrentX) * 0.1; tCurrentY += (tTargetY - tCurrentY) * 0.1;
+                    if (fairyLight) { fairyLight.style.left = `${tCurrentX}px`; fairyLight.style.top = `${tCurrentY}px`; }
+                    const sWidth = teacherSection.offsetWidth; const sHeight = teacherSection.offsetHeight;
+                    let rotXTarget = -(tCurrentY - sHeight / 2) / 20; let rotYTarget = (tCurrentX - sWidth / 2) / 25;
+                    if (!isTouchDevice) {
+                        sceneRotX += (rotXTarget - sceneRotX) * 0.1; sceneRotY += (rotYTarget - sceneRotY) * 0.1;
+                        let zPush = (1 - (Math.abs(tCurrentX - sWidth/2)/sWidth + Math.abs(tCurrentY - sHeight/2)/sHeight)) * 30;
+                        tHeroSection.style.transform = `rotateX(${sceneRotX}deg) rotateY(${sceneRotY}deg) translateZ(${zPush}px)`;
+                    }
+                    physicsLetters.forEach((letter) => {
+                        const rect = letter.el.getBoundingClientRect();
+                        const sRect = teacherSection.getBoundingClientRect();
+                        const localX = (rect.left - sRect.left) + rect.width / 2;
+                        const localY = (rect.top - sRect.top) + rect.height / 2;
+                        const dx = tCurrentX - localX; const dy = tCurrentY - localY;
+                        const distance = Math.sqrt(dx * dx + dy * dy);
+                        const hoverRadius = isTouchDevice ? 120 : 100;
+                        let tY = letter.targetY; let tZ = 0; let tRotY = 0; let colorBlend = letter.glowActive;
+                        if (distance < hoverRadius && letter.glowActive === 0) {
+                            const force = (hoverRadius - distance) / hoverRadius;
+                            tY = -12 * force; tZ = 15 * force; tRotY = (dx * -0.08) * force; colorBlend = force * 0.9;
+                        }
+                        const spring = 0.12; const friction = 0.82;
+                        letter.vy += (tY - letter.y) * spring; letter.vz += (tZ - letter.z) * spring; letter.vrY += (tRotY - letter.rY) * spring;
+                        letter.vy *= friction; letter.vz *= friction; letter.vrY *= friction;
+                        letter.y += letter.vy; letter.z += letter.vz; letter.rY += letter.vrY;
+                        letter.currentColor[0] += ((letter.baseColor[0] + (letter.targetColor[0] - letter.baseColor[0]) * colorBlend) - letter.currentColor[0]) * 0.15;
+                        letter.currentColor[1] += ((letter.baseColor[1] + (letter.targetColor[1] - letter.baseColor[1]) * colorBlend) - letter.currentColor[1]) * 0.15;
+                        letter.currentColor[2] += ((letter.baseColor[2] + (letter.targetColor[2] - letter.baseColor[2]) * colorBlend) - letter.currentColor[2]) * 0.15;
+                        letter.blurVal += (letter.targetBlur - letter.blurVal) * 0.15;
+                        letter.el.style.transform = `translateY(${letter.y}px) translateZ(${letter.z}px) rotateY(${letter.rY}deg)`;
+                        letter.el.style.color = `rgb(${Math.round(letter.currentColor[0])}, ${Math.round(letter.currentColor[1])}, ${Math.round(letter.currentColor[2])})`;
+                        if (letter.blurVal > 0.05) letter.el.style.filter = `blur(${letter.blurVal}px)`;
+                        else letter.el.style.filter = 'none';
+                        if (colorBlend > 0.05) letter.el.style.textShadow = `0 ${2 * colorBlend}px ${8 * colorBlend}px rgba(26, 95, 95, ${0.25 * colorBlend})`;
+                        else letter.el.style.textShadow = 'none';
+                    });
+                    requestAnimationFrame(animateTeacherScene);
+                }
+                animateTeacherScene();
+
+                const phase1 = document.getElementById('phase1');
+                const phase2 = document.getElementById('phase2');
+                const finalName = document.getElementById('interactive-name');
+                const typingArea = document.getElementById('typing-area');
+                const bioData = [
+                    { label: "MATA PELAJARAN", value: "Matematika", effectClass: "effect-glow" },
+                    { label: "LAMA MENGAJAR", value: "15 Tahun", effectClass: "effect-glow" },
+                    { label: "DOMISILI", value: "Bandung, Jawa Barat", effectClass: "effect-glow" },
+                    { label: "MASA BAKTI", value: "2011 s/d 2026", effectClass: "effect-glow" },
+                    { label: "PRESTASI", value: "Guru Teladan Nasional", effectClass: "effect-glow" }
+                ];
+                let isStoryPlayed = false;
+                const teacherObserver = new IntersectionObserver((entries) => {
+                    if (entries[0].isIntersecting && !isStoryPlayed) {
+                        isStoryPlayed = true;
+                        setTimeout(() => {
+                            phase1.classList.add('active');
+                            setTimeout(() => {
+                                phase1.classList.remove('active'); phase1.classList.add('exit');
+                                setTimeout(() => {
+                                    phase2.classList.add('active');
+                                    setTimeout(() => {
+                                        phase2.classList.remove('active'); phase2.classList.add('exit');
+                                        setTimeout(() => {
+                                            finalName.style.opacity = '1'; finalName.classList.add('active');
+                                            setTimeout(() => {
+                                                bioData.forEach((item, index) => {
+                                                    const itemDiv = document.createElement('div');
+                                                    itemDiv.className = 'bio-item';
+                                                    itemDiv.innerHTML = `<span class="bio-label">${item.label}</span><span class="bio-value ${item.effectClass}">${item.value}</span>`;
+                                                    typingArea.appendChild(itemDiv);
+                                                    const valueEl = itemDiv.querySelector('.bio-value');
+                                                    const triggerBioEffect = (e) => { e.preventDefault(); valueEl.classList.add('active'); setTimeout(() => { valueEl.classList.remove('active'); }, 1500); };
+                                                    valueEl.addEventListener('mousedown', triggerBioEffect);
+                                                    valueEl.addEventListener('touchstart', triggerBioEffect, {passive: false});
+                                                    setTimeout(() => { itemDiv.classList.add('show'); }, index * 700);
+                                                });
+                                                if (!isTouchDevice) updateInteractableListeners();
+                                            }, 600);
+                                        }, 800);
+                                    }, 2000);
+                                }, 800);
+                            }, 2000);
+                        }, 500);
+                        teacherObserver.unobserve(teacherSection);
+                    }
+                }, { threshold: 0.4 });
+                teacherObserver.observe(teacherSection);
+            }
+
+            // ============================================
+            // STUDENTS SECTION (from index7)
+            // ============================================
+
+            // Split text animation
+            document.querySelectorAll('.js-split-text').forEach(container => {
+                const text = container.innerText;
+                container.innerHTML = '';
+                text.split('').forEach((char, i) => {
+                    const outerSpan = document.createElement('span');
+                    outerSpan.classList.add('split-outer');
+                    outerSpan.style.transitionDelay = `${i * 0.04}s`;
+                    const innerSpan = document.createElement('span');
+                    innerSpan.innerText = char === ' ' ? '\u00A0' : char;
+                    innerSpan.classList.add('split-inner');
+                    outerSpan.appendChild(innerSpan);
+                    container.appendChild(outerSpan);
+                });
+            });
+
+            // Magnetic repel & blur text
+            const interactiveChars = document.querySelectorAll('.split-inner');
+            const repelRadius = 100;
+            if (!isTouchDevice) {
+                const headerArea = document.getElementById('header-interactive-area');
+                if (headerArea) {
+                    headerArea.addEventListener('mousemove', (e) => {
+                        interactiveChars.forEach(char => {
+                            const rect = char.getBoundingClientRect();
+                            const charX = rect.left + rect.width / 2; const charY = rect.top + rect.height / 2;
+                            const distX = e.clientX - charX; const distY = e.clientY - charY;
+                            const distance = Math.sqrt(distX * distX + distY * distY);
+                            if (distance < repelRadius) {
+                                const angle = Math.atan2(distY, distX);
+                                const pushDist = (repelRadius - distance) * 0.8;
+                                const tx = -Math.cos(angle) * pushDist; const ty = -Math.sin(angle) * pushDist;
+                                const rot = pushDist * 1.5; const blur = pushDist * 0.05;
+                                char.style.transform = `translate(${tx}px, ${ty}px) rotate(${rot}deg) scale(1.3)`;
+                                char.style.filter = `blur(${blur}px)`;
+                                char.style.color = Math.random() > 0.5 ? '#06b6d4' : '#ec4899';
+                                char.style.textShadow = `0 0 15px ${char.style.color}`;
+                            } else {
+                                char.style.transform = `translate(0px, 0px) rotate(0deg) scale(1)`;
+                                char.style.filter = `blur(0px)`; char.style.color = ''; char.style.textShadow = 'none';
+                            }
+                        });
+                    });
+                    headerArea.addEventListener('mouseleave', () => {
+                        interactiveChars.forEach(char => {
+                            char.style.transform = `translate(0px, 0px) rotate(0deg) scale(1)`;
+                            char.style.filter = `blur(0px)`; char.style.color = ''; char.style.textShadow = 'none';
+                        });
+                    });
+                }
+            }
+
+            // Search typing color shift
+            const searchInput = document.getElementById('searchInput');
+            if (searchInput) {
+                searchInput.addEventListener('input', (e) => {
+                    const colors = ['#3b82f6', '#ec4899', '#06b6d4', '#8b5cf6', '#10b981'];
+                    const randomColor = colors[Math.floor(Math.random() * colors.length)];
+                    searchInput.style.boxShadow = `0 0 20px ${randomColor}40`;
+                    searchInput.style.borderColor = randomColor;
+                    setTimeout(() => { searchInput.style.boxShadow = ''; searchInput.style.borderColor = ''; }, 200);
+                });
+            }
+
+            // Hacker scramble
+            const hackerChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*<>/?";
+            document.querySelectorAll('.tilt-wrapper').forEach(card => {
+                const titleEl = card.querySelector('h3');
+                if (!titleEl) return;
+                const originalText = titleEl.getAttribute('title');
+                if (!originalText) return;
+                card.addEventListener('mouseenter', () => {
+                    let iterations = 0;
+                    clearInterval(titleEl.scrambleInterval);
+                    titleEl.scrambleInterval = setInterval(() => {
+                        titleEl.innerText = originalText.split("").map((letter, index) => {
+                            if (index < iterations || letter === " ") return originalText[index];
+                            return hackerChars[Math.floor(Math.random() * hackerChars.length)];
+                        }).join("");
+                        if (iterations >= originalText.length) {
+                            clearInterval(titleEl.scrambleInterval);
+                            titleEl.innerText = originalText;
+                        }
+                        iterations += 1 / 2;
+                    }, 30);
+                });
+            });
+
+            // Spotlight grid & 3D tilt
+            const studentGrid = document.getElementById('studentGrid');
+            if (!isTouchDevice && studentGrid) {
+                const tiltWrappers = document.querySelectorAll('.tilt-wrapper');
+                studentGrid.addEventListener('mousemove', e => {
+                    for (const card of tiltWrappers) {
+                        const rect = card.getBoundingClientRect();
+                        card.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`);
+                        card.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
+                    }
+                });
+                tiltWrappers.forEach(wrapper => {
+                    const card = wrapper.querySelector('.tilt-card');
+                    if (!card) return;
+                    wrapper.addEventListener('mousemove', e => {
+                        const rect = wrapper.getBoundingClientRect();
+                        const cx = rect.width / 2; const cy = rect.height / 2;
+                        const rx = -((e.clientY - rect.top - cy) / cy) * 12;
+                        const ry = ((e.clientX - rect.left - cx) / cx) * 12;
+                        card.style.transform = `rotateX(${rx}deg) rotateY(${ry}deg)`;
+                    });
+                    wrapper.addEventListener('mouseleave', () => { card.style.transform = `rotateX(0deg) rotateY(0deg)`; });
+                });
+            }
+
+            // Scroll animation for students
+            const studentAnimElements = document.querySelectorAll('[data-scroll-anim], .anim-text-container, .anim-line');
+            const studentObserver = new IntersectionObserver((entries) => {
+                let delayCounter = 0;
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const el = entry.target;
+                        if (el.hasAttribute('data-scroll-anim')) {
+                            setTimeout(() => { el.classList.add('in-view'); }, delayCounter * 80);
+                            delayCounter++;
+                        } else {
+                            el.classList.add('in-view');
+                        }
+                        studentObserver.unobserve(el);
+                    }
+                });
+            }, { threshold: 0.1 });
+            studentAnimElements.forEach(el => studentObserver.observe(el));
+
+            // Search glitch
+            if (searchInput) {
+                const studentItems = document.querySelectorAll('.student-item');
+                searchInput.addEventListener('input', (e) => {
+                    const searchTerm = e.target.value.toLowerCase();
+                    studentItems.forEach(item => {
+                        const studentName = item.querySelector('h3').getAttribute('title').toLowerCase();
+                        if (studentName.includes(searchTerm)) {
+                            item.classList.remove('glitch-hide');
+                            item.style.display = 'block';
+                            setTimeout(() => { item.classList.add('in-view'); }, 50);
+                        } else {
+                            item.classList.remove('in-view');
+                            if (item.style.display !== 'none') {
+                                item.classList.add('glitch-hide');
+                                setTimeout(() => { if (item.classList.contains('glitch-hide')) item.style.display = 'none'; }, 400);
+                            }
+                        }
+                    });
+                });
+            }
+
+            // Modal logic
+            function animateValue(element, start, end, duration, prefix = "") {
+                let startTimestamp = null;
+                const step = (timestamp) => {
+                    if (!startTimestamp) startTimestamp = timestamp;
+                    const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                    const easeOutProgress = 1 - Math.pow(1 - progress, 3);
+                    const current = Math.floor(easeOutProgress * (end - start) + start);
+                    element.innerText = prefix + current;
+                    if (progress < 1) { window.requestAnimationFrame(step); }
+                    else { element.innerText = prefix + end; element.dataset.value = prefix + end; }
+                };
+                window.requestAnimationFrame(step);
+            }
+
+            const overlay = document.getElementById('screenshot-modal-overlay');
+            const modalNameEl = document.getElementById('modal-name');
+            const modalImg = document.getElementById('modal-img');
+            const modalAbsen = document.getElementById('modal-absen');
+            const modalAngkatan = document.getElementById('modal-angkatan');
+            const btnClose = document.getElementById('modal-close');
+            const fallbackSVG = "data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='500' viewBox='0 0 24 24' fill='none' stroke='rgba(0,0,0,0.05)' stroke-width='0.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2'/%3E%3Ccircle cx='12' cy='7' r='4'/%3E%3C/svg%3E";
+            modalImg.onerror = function() { this.onerror = null; this.src = fallbackSVG; };
+            let currentFuzzyText = null;
+
+            // Magnetic close button
+            if (!isTouchDevice && btnClose) {
+                btnClose.addEventListener('mousemove', (e) => {
+                    const rect = btnClose.getBoundingClientRect();
+                    const x = e.clientX - rect.left - rect.width / 2;
+                    const y = e.clientY - rect.top - rect.height / 2;
+                    btnClose.style.transform = `translate(${x * 0.4}px, ${y * 0.4}px) scale(1.1)`;
+                });
+                btnClose.addEventListener('mouseleave', () => {
+                    btnClose.style.transform = `translate(0px, 0px) scale(1)`;
+                });
+            }
+
+            document.querySelectorAll('[data-role]').forEach(card => {
+                card.addEventListener('click', (e) => {
+                    if (e.target.closest('.new-ig-btn')) return;
+                    const dataStr = card.getAttribute('data-student');
+                    if (!dataStr) return;
+                    const data = JSON.parse(dataStr);
+                    modalNameEl.innerHTML = '';
+                    const nameParts = data.name.split(' ');
+                    let textLines = []; let fontSizeCss = ''; let lineHeightMult = 0.95; let shouldWrapDynamically = false;
+                    if (nameParts.length <= 3 && data.name.length <= 22) {
+                        textLines = nameParts; fontSizeCss = "clamp(3rem, 5vw, 5.5rem)"; lineHeightMult = 0.95;
+                    } else {
+                        textLines = [data.name]; fontSizeCss = "clamp(2rem, 3.5vw, 3.5rem)"; lineHeightMult = 1.1; shouldWrapDynamically = true;
+                    }
+                    const badge = document.getElementById('modal-badge');
+                    badge.innerText = data.role;
+                    if (data.color) badge.style.color = data.color;
+                    modalImg.src = data.photo;
+                    const devBtn = document.getElementById('dev-btn');
+                    if (data.no === 20) devBtn.classList.remove('hidden-btn');
+                    else devBtn.classList.add('hidden-btn');
+                    overlay.classList.remove('show');
+                    void overlay.offsetWidth;
+                    overlay.classList.add('show');
+                    modalAbsen.innerText = "#0"; modalAngkatan.innerText = "2000";
+                    setTimeout(() => { animateValue(modalAbsen, 0, data.no, 1500, "#"); }, 400);
+                    setTimeout(() => { animateValue(modalAngkatan, 2000, 2026, 1500); }, 600);
+                    setTimeout(() => {
+                        if (currentFuzzyText) currentFuzzyText.destroy();
+                        currentFuzzyText = new VanillaFuzzyText(modalNameEl, textLines, fontSizeCss, lineHeightMult, '#0f172a', shouldWrapDynamically);
+                    }, 50);
+                    document.body.style.overflow = 'hidden';
+                });
+            });
+
+            function closeModal() {
+                overlay.classList.remove('show');
+                document.body.style.overflow = '';
+                if (btnClose) btnClose.style.transform = `translate(0px, 0px) scale(1)`;
+                setTimeout(() => {
+                    if (currentFuzzyText) { currentFuzzyText.destroy(); currentFuzzyText = null; }
+                }, 500);
+            }
+            if (btnClose) btnClose.addEventListener('click', closeModal);
+            if (overlay) overlay.addEventListener('click', (e) => { if (e.target === overlay) closeModal(); });
+            document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+
+        });
+    </script>
+</body>
+</html>
